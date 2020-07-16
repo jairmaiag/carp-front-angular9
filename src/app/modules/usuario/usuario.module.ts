@@ -1,4 +1,6 @@
+import { Global } from './global';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
 
 import { UsuarioRoutingModule } from './usuario-routing.module';
@@ -10,7 +12,9 @@ import { UsuarioViewComponent } from './components/usuario-view/usuario-view.com
   declarations: [UsuarioFormComponent, UsuarioListComponent, UsuarioViewComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     UsuarioRoutingModule
-  ]
+  ],
+  providers: [Global]
 })
 export class UsuarioModule { }
