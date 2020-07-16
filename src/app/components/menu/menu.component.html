@@ -15,44 +15,54 @@
 
   <div class="collapse navbar-collapse" id="intensBarraMenu">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['']"
-          >Home <span class="sr-only">(current)</span></a
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['orcamento']">Orçamento</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item dropdown">
+      <li
+        class="nav-item"
+        routerLinkActive="active"
+        [ngClass]="{ dropdown: item.subIntens != null }"
+        *ngFor="let item of getItensMenu()"
+      >
         <a
+          *ngIf="item.subIntens === null"
+          class="nav-link"
+          [routerLink]="[item.link]"
+          >{{ item.texto }}</a
+        >
+
+        <a
+          *ngIf="item.subIntens !== null"
           class="nav-link dropdown-toggle"
-          data-toggle="dropdown"
-          href="#"
+          [routerLink]="[item.link]"
+          id="navbarDropdown"
           role="button"
+          data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          id="tabelas"
-          >Tabelas</a
         >
-        <div class="dropdown-menu" aria-labelledby="tabelas">
-          <a class="dropdown-item" [routerLink]="['produto']">Produto</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
+          {{ item.texto }}</a
+        >
+
+        <div
+          *ngIf="item.subIntens !== null"
+          class="dropdown-menu"
+          aria-labelledby="navbarDropdown"
+        >
+          <a
+            *ngFor="let subItem of item.subIntens"
+            class="dropdown-item"
+            [routerLink]="[subItem.link]"
+            routerLinkActive="active"
+            >{{ subItem.texto }}</a
+          >
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
     </ul>
+    <span class="navbar-text">
+      Texto
+    </span>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" />
+      <input class="form-control mr-sm-2" type="text" placeholder="Localizar" />
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-        Search
+        Localizar
       </button>
     </form>
   </div>
