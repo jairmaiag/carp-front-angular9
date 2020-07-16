@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'produto', loadChildren: () => import('./modules/produto/produto.module').then(m => m.ProdutoModule) },
+  { path: 'usuario', loadChildren: () => import('./modules/usuario/usuario.module').then(m => m.UsuarioModule) },
   { path: 'orcamento', loadChildren: () => import('./modules/orcamento/orcamento.module').then(m => m.OrcamentoModule) }
 ];
 
