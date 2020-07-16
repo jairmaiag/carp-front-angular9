@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AcessoComponent } from './components/acesso/acesso.component';
+import { ModalComponent } from './components/geral/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuComponent,
-    AcessoComponent
+    AcessoComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
