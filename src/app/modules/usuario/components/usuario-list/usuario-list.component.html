@@ -1,5 +1,26 @@
 <p>usuario-list works!</p>
-<a [routerLink]="['/']">Cancelar</a><br />
-<a [routerLink]="['/usuario/new']">Novo</a><br />
-<a [routerLink]="['/usuario/', 1, 'edit']">Editar</a><br />
-<a [routerLink]="['/usuario/', 1, 'view']">Detalhe</a><br />
+<button type="button" class="btn btn-primary" (click)="cancelar()">
+  <i class="fa fa-times" aria-hidden="true"></i>
+</button>
+<br />
+<button type="button" class="btn btn-primary" (click)="novo()">
+  <i class="fa fa-file-o" aria-hidden="true"></i>
+</button>
+
+<div
+  class="btn-toolbar"
+  role="toolbar"
+  aria-label="Toolbar com grupos de botões"
+>
+  <div class="btn-group mr-2" role="group" aria-label="Primeiro grupo">
+    <button type="button" class="btn btn-primary" (click)="visualizar(1)">
+      <i class="fa fa-folder-open" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="btn btn-primary" (click)="editar(1)">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="btn btn-primary" (click)="excluir(1)">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
