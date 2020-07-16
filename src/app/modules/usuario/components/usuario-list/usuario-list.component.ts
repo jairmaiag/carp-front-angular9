@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./usuario-list.component.css']
 })
 export class UsuarioListComponent implements OnInit {
-
+  tituloComponente = "Listagem de Usuário";
   constructor(private router: Router, private activeRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
