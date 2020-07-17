@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <div class="col-sm">
-      <form>
+      <form [formGroup]="formulario" (ngSubmit)="salvar()">
         <div class="form-group" *ngIf="id != null">
           <label for="id">Id</label>
           <input type="text" readonly class="form-control-plaintext" id="id" />
@@ -23,6 +23,7 @@
               <label for="login">Login</label>
               <input
                 type="text"
+                formControlName="login"
                 class="form-control form-control-sm"
                 id="login"
                 placeholder="Login"
@@ -38,23 +39,30 @@
                 class="form-control form-control-sm"
                 id="nome"
                 placeholder="Nome"
+                formControlName="nome"
               />
             </div>
           </div>
           <div class="col-sm">
             <div class="form-group">
-              <label for="sobreNome">Sobre Nome</label>
+              <label for="sobrenome">Sobre Nome</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
-                id="sobreNome"
+                id="sobrenome"
+                formControlName="sobrenome"
                 placeholder="Sobre Nome"
               />
             </div>
           </div>
         </div>
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="ativo" />
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="ativo"
+            formControlName="ativo"
+          />
           <label class="form-check-label" for="ativo">Ativo</label>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
