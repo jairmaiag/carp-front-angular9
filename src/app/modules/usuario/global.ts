@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class Global {
-    modulo: String = 'usuario';
+    static modulo: String = 'usuario';
     titulo: String = 'Usuário';
     inclusao: String = 'Inclusão de ';
     alteracao: String = 'Alteração de ';
