@@ -1,4 +1,5 @@
+import { Pagina } from './pagina';
 export class Paginacao {
-    page: any;
+    page: Pagina;
     rows: any[];
 }
