@@ -27,35 +27,62 @@
   </div>
   <div class="row">
     <div class="col-sm">
-      <table
-        class="table table-striped table-hover"
-        *ngIf="lista$ | async as lista; else carregando"
-      >
+      <!-- table class="table table-striped table-hover" *ngIf="lista$ | async as lista; else aviso" -->
+      <table class="table table-striped table-hover" *ngIf="lista; else aviso">
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Primeiro</th>
-            <th scope="col">Último</th>
-            <th scope="col">Nickname</th>
+            <th scope="col">Login</th>
+            <th scope="col">Nome</th>
             <th scope="col">Ação</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let usuario of lista">
-            <th scope="row">{{ usuario.id }}</th>
+            <th scope="row">{{ usuario.UUId }}</th>
             <td>{{ usuario.login }}</td>
-            <td>{{ usuario.pessoa.nome }}</td>
-            <td>{{ usuario.pessoa.nome }}</td>
+            <td>{{ usuario["Pessoa.nome"] }}</td>
+            <td>Ação</td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <nav aria-label="Navegação de página exemplo">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Anterior">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Anterior</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Próximo">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Próximo</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </td>
+          </tr>
+        </tfoot>
       </table>
-      <ng-template #carregando>
-        <div *ngIf="erro$ | async as erro; else carregandoDados">
-          Falha: {{ erro.message }}<br/>
-          Entre em contato com <a href="mailto:jairmaiag@gmail.com?subject=Erro">jairmaiag@gmail.com</a>
+
+      <ng-template #aviso>
+        <!-- div *ngIf="erro$ | async as erro; else carregandoDados" -->
+        <div *ngIf="erro; else carregandoDados">
+          Falha: {{ erro.message }}<br />
+          Entre em contato com
+          <a href="mailto:jairmaiag@gmail.com?subject=Erro"
+            >jairmaiag@gmail.com</a
+          >
         </div>
         <ng-template #carregandoDados>
-          <i class="fa fa-spinner fa-2x fa-spin" aria-hidden="true"></i><br/>
+          <i class="fa fa-spinner fa-2x fa-spin" aria-hidden="true"></i><br />
           Aguarde...
         </ng-template>
       </ng-template>

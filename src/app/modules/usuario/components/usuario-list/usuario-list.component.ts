@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable, empty, Subject } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { JsonPipe } from '@angular/common';
 
+import { Observable, Subject, Subscription } from 'rxjs';
+
+import { Paginacao } from './../../../../models/paginacao';
 import { Usuario } from './../../models/usuario';
 import { UsuarioService } from '../../services/usuario.service';
-import { catchError } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-usuario-list',
@@ -14,28 +16,31 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class UsuarioListComponent implements OnInit {
   tituloComponente = "Listagem de Usuário";
-
-  lista$: Observable<Usuario[]>;
-  erro$ = new Subject<HttpErrorResponse>();
+  erro: any = null;
+  lista: Usuario[];
+  inscricao$: Subscription;
 
   constructor(private usuarioService: UsuarioService, private router: Router, private activeRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.lista$ = this.usuarioService.getList().pipe(
-      catchError(error => {
-        this.erro$.next(error);
-        return empty();
-      })
-    );
+    this.listar();
   }
-
-  cancelar() {
-    this.router.navigateByUrl('/');
+  OnDestroy() {
+    if (this.inscricao$) {
+      this.inscricao$.unsubscribe();
+    }
+  }
+  listar() {
+    const paginacao = this.usuarioService.getList();
+    this.inscricao$ = paginacao.subscribe(retorno => {
+      this.lista = retorno.rows;
+      console.log(retorno);
+    }, erro => {
+      this.erro = erro;
+    });
   }
   novo() {
     this.router.navigateByUrl('/usuario/new');
-  }
-  listar() {
   }
 
   editar(id: any) {
@@ -48,12 +53,16 @@ export class UsuarioListComponent implements OnInit {
     if (!id) {
       return;
     }
-    this.router.navigateByUrl(`/usuario/${id}/view`);
+    // this.router.navigateByUrl(`/usuario/${id}/view`);
+    this.router.navigate(['/usuario/', id, '/view']);
   }
   excluir(id: any) {
     if (!id) {
       return;
     }
     this.router.navigateByUrl('/usuario');
+  }
+  cancelar() {
+    this.router.navigateByUrl('/');
   }
 }
