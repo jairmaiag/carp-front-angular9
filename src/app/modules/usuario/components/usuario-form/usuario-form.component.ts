@@ -14,7 +14,8 @@ export class UsuarioFormComponent implements OnInit {
   id: any;
   tituloComponente: String;
   formulario: FormGroup;
-  
+  usuario: Usuario;
+
   constructor(private global: Global, private usuarioService: UsuarioService, private router: Router, private activeRouter: ActivatedRoute) {
     this.tituloComponente = `${this.global.inclusao}${this.global.titulo}`;
   }
@@ -24,6 +25,7 @@ export class UsuarioFormComponent implements OnInit {
     this.formulario = new FormGroup({
       id: new FormControl(null),
       login: new FormControl(null),
+      senha: new FormControl(null),
       nome: new FormControl(null),
       sobrenome: new FormControl(null),
       ativo: new FormControl(null)
@@ -40,12 +42,13 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   cancelar() {
-    this.router.navigateByUrl('/usuario');
+    this.router.navigate([`/${Global.modulo}`]);
+    //this.router.navigateByUrl(`/${Global.modulo}`);
   }
 
   salvar() {
-    this.usuarioService.salvar(this.formulario.value);
-    this.router.navigateByUrl('/usuario');
+    this.usuarioService.salvar(this.formulario.value).subscribe(usuario => this.usuario = usuario);
+    this.router.navigateByUrl(`/${Global.modulo}`);
   }
 
 }
