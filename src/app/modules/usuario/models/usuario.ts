@@ -1,10 +1,11 @@
 import { Pessoa } from './../../../models/pessoa';
+
 export class Usuario {
-    id?: any;
-    UUId?: String;
-    login?: String;
-    senha: String;
+    id?: number;
+    UUId?: string;
+    login?: string;
+    senha: string;
     ativo?: boolean;
     expira: Date;
-    Pessoa?: Pessoa;
+    Pessoa: {};
 }
