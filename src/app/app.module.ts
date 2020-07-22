@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AcessoComponent } from './components/acesso/acesso.component';
 import { ModalComponent } from './components/geral/modal/modal.component';
+import { TituloTelaComponent } from './components/titulo-tela/titulo-tela.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ModalComponent } from './components/geral/modal/modal.component';
     HomeComponent,
     MenuComponent,
     AcessoComponent,
-    ModalComponent
+    ModalComponent,
+    TituloTelaComponent
   ],
   imports: [
     BrowserModule,
