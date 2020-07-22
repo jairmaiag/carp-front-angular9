@@ -27,22 +27,46 @@
   </div>
   <div class="row">
     <div class="col-sm">
-      <!-- table class="table table-striped table-hover" *ngIf="lista$ | async as lista; else aviso" -->
-      <table class="table table-striped table-hover" *ngIf="lista; else aviso">
+      <table
+        class="table table-striped table-hover"
+        *ngIf="paginacao?.rows; else aviso"
+      >
         <thead>
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Login</th>
             <th scope="col">Nome</th>
-            <th scope="col">Ação</th>
+            <th scope="col" style="width: 180px;">Ação</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let usuario of lista">
+          <tr *ngFor="let usuario of paginacao.rows">
             <th scope="row">{{ usuario.UUId }}</th>
             <td>{{ usuario.login }}</td>
             <td>{{ usuario["Pessoa.nome"] }}</td>
-            <td>Ação</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="editar(usuario.id)"
+              >
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="visualizar(usuario.id)"
+              >
+                <i class="fa fa-folder-open" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="visualizar(usuario.id)"
+              >
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
         <tfoot>
@@ -73,13 +97,21 @@
       </table>
 
       <ng-template #aviso>
-        <!-- div *ngIf="erro$ | async as erro; else carregandoDados" -->
         <div *ngIf="erro; else carregandoDados">
           Falha: {{ erro.message }}<br />
           Entre em contato com
           <a href="mailto:jairmaiag@gmail.com?subject=Erro"
             >jairmaiag@gmail.com</a
           >
+          <p>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="recarregar()"
+            >
+              <i class="fa fa-refresh" aria-hidden="true"></i>
+            </button>
+          </p>
         </div>
         <ng-template #carregandoDados>
           <i class="fa fa-spinner fa-2x fa-spin" aria-hidden="true"></i><br />
