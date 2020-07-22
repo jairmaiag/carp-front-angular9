@@ -1,11 +1,11 @@
 export class Pessoa {
     id: number;
-    nome: String;
-    nomeMeio: String;
-    sobrenome: String;
-    nascimento: Date;
-    sexo: String;
-    cpf: String;
-    rg: String;
+    nome: string;
+    nomeMeio?: string;
+    sobrenome?: string;
+    nascimento?: Date;
+    sexo?: string;
+    cpf?: string;
+    rg?: string;
     ativo: boolean;
 }
