@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
-import { JsonPipe } from '@angular/common';
 
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { Paginacao } from './../../../../models/paginacao';
 import { Usuario } from './../../models/usuario';
@@ -18,6 +16,7 @@ export class UsuarioListComponent implements OnInit {
   tituloComponente = "Listagem de Usuário";
   erro: any = null;
   lista: Usuario[];
+  paginacao: Paginacao;
   inscricao$: Subscription;
 
   constructor(private usuarioService: UsuarioService, private router: Router, private activeRouter: ActivatedRoute) { }
@@ -33,8 +32,8 @@ export class UsuarioListComponent implements OnInit {
   listar() {
     const paginacao = this.usuarioService.getList();
     this.inscricao$ = paginacao.subscribe(retorno => {
+      this.paginacao = retorno;
       this.lista = retorno.rows;
-      console.log(retorno);
     }, erro => {
       this.erro = erro;
     });
@@ -43,26 +42,29 @@ export class UsuarioListComponent implements OnInit {
     this.router.navigateByUrl('/usuario/new');
   }
 
-  editar(id: any) {
+  editar(id: number) {
     if (!id) {
       return;
     }
     this.router.navigateByUrl(`/usuario/${id}/edit`);
   }
-  visualizar(id: any) {
+  visualizar(id: number) {
     if (!id) {
       return;
     }
-    // this.router.navigateByUrl(`/usuario/${id}/view`);
-    this.router.navigate(['/usuario/', id, '/view']);
+    this.router.navigateByUrl(`/usuario/${id}/view`);
   }
-  excluir(id: any) {
+  excluir(id: number) {
     if (!id) {
       return;
     }
     this.router.navigateByUrl('/usuario');
   }
   cancelar() {
-    this.router.navigateByUrl('/');
+    this.router.navigate(['/']);
+    //this.router.navigateByUrl('/');
+  }
+  recarregar() {
+    this.router.navigate(['/usuario']);
   }
 }
