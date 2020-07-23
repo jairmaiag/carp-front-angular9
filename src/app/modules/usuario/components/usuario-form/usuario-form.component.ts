@@ -24,7 +24,7 @@ export class UsuarioFormComponent implements OnInit {
     //this.pessoa.nome = "";
     this.usuario.Pessoa = this.pessoa;
     console.log(this.usuario);
-    this.id = this.activeRouter.snapshot.paramMap.get('id');
+    this.id = this.activeRouter.snapshot.paramMap.get('uuid');
     this.buscarUsuario(this.id);
     console.log(this.usuario);
     if (this.id != null) {
@@ -34,7 +34,7 @@ export class UsuarioFormComponent implements OnInit {
 
   buscarUsuario(id: any) {
     if (this.id != null) {
-      let usuario = this.usuarioService.getById(this.id);
+      let usuario = this.usuarioService.getByUUId(this.id);
       usuario.subscribe(usuario => {
         this.usuario = usuario;
         this.pessoa = usuario.Pessoa;
@@ -42,7 +42,7 @@ export class UsuarioFormComponent implements OnInit {
         console.log(this.usuario);
       });
     } else {
-      this.usuario = new Usuario();
+      this.usuario.Pessoa = this.pessoa;
     }
   }
 
@@ -52,10 +52,9 @@ export class UsuarioFormComponent implements OnInit {
     //this.router.navigateByUrl(`/${Global.modulo}`);
   }
 
-  salvar(formulario) {
-    console.log(formulario);
-    //this.usuarioService.salvar(this.formulario.value).subscribe(usuario => this.usuario = usuario);
-    //this.router.navigateByUrl(`/${Global.modulo}`);
+  salvar() {
+    this.usuarioService.salvar(this.usuario).subscribe(usuario => this.usuario = usuario);
+    this.router.navigateByUrl(`/${Global.modulo}`);
   }
 
 }
