@@ -3,7 +3,7 @@ import { BotaoComponent } from './../botao/botao.component';
 
 @Component({
   selector: 'botao-novo',
-  template: '<botao (acao)="clickBotao()"></botao>',
+  template: '<botao (acao)="clickBotao()" icone="{{icone}}"></botao>',
   styleUrls: ['./botao-novo.component.css']
 })
 
