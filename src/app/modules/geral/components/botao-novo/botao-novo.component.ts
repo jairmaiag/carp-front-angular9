@@ -2,12 +2,12 @@ import { Component, Input } from '@angular/core';
 import { BotaoComponent } from './../botao/botao.component';
 
 @Component({
-  selector: 'botao-fechar',
+  selector: 'botao-novo',
   template: '<botao (acao)="clickBotao()"></botao>',
-  styleUrls: ['./botao-fechar.component.css']
+  styleUrls: ['./botao-novo.component.css']
 })
 
-export class BotaoFecharComponent extends BotaoComponent {
+export class BotaoNovoComponent extends BotaoComponent {
   @Input()
-  icone: string = 'fa-times';
+  icone: string = 'fa-file-o';
 }
