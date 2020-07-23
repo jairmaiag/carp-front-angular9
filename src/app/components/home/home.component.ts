@@ -12,6 +12,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
   fechar() {
-    console.log('Clicou no botão fechar');
+    console.log('Clicou no botão do componente Home');
   }
 }
