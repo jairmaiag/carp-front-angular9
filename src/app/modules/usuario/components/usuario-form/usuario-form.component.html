@@ -12,7 +12,12 @@
   </div>
   <div class="row">
     <div class="col-sm">
-      <form #formUsu="ngForm" (ngSubmit)="salvar(formUsu)">
+      {{ usuario | json }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <form #formUsu="ngForm" (ngSubmit)="salvar()">
         <div class="form-group" *ngIf="id != null">
           <label for="id">Id</label>
           <input
@@ -60,7 +65,7 @@
                 class="form-control form-control-sm"
                 id="nome"
                 name="nome"
-                [(ngModel)]="usuario.Pessoa"
+                [(ngModel)]="usuario.Pessoa.nome"
                 placeholder="Nome"
               />
             </div>
@@ -73,7 +78,7 @@
                 class="form-control form-control-sm"
                 id="sobrenome"
                 name="sobrenome"
-                ngModel
+                [(ngModel)]="usuario.Pessoa.sobrenome"
                 placeholder="Sobre Nome"
               />
             </div>
@@ -85,7 +90,7 @@
             class="form-check-input"
             id="ativo"
             name="ativo"
-            ngModel
+            [(ngModel)]="usuario.ativo"
           />
           <label class="form-check-label" for="ativo">Ativo</label>
         </div>
