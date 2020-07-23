@@ -5,6 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { GeralModule } from './modules/geral/geral.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -27,11 +28,13 @@ import { TituloTelaComponent } from './components/titulo-tela/titulo-tela.compon
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GeralModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt-BR" }
   ],
+  exports: [ModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
