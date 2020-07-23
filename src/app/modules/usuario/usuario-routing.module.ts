@@ -8,8 +8,8 @@ import { UsuarioListComponent } from './components/usuario-list/usuario-list.com
 const routes: Routes = [
   { path: '', component: UsuarioListComponent },
   { path: 'new', component: UsuarioFormComponent },
-  { path: ':id/view', component: UsuarioViewComponent },
-  { path: ':id/edit', component: UsuarioFormComponent }
+  { path: ':uuid/view', component: UsuarioViewComponent },
+  { path: ':uuid/edit', component: UsuarioFormComponent }
 ];
 
 @NgModule({
