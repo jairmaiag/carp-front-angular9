@@ -1,8 +1,8 @@
+import { Pessoa } from './../../../../models/pessoa';
 import { Usuario } from './../../models/usuario';
 import { Global } from './../../global';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
 import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
@@ -13,42 +13,49 @@ import { UsuarioService } from '../../services/usuario.service';
 export class UsuarioFormComponent implements OnInit {
   id: any;
   tituloComponente: String;
-  formulario: FormGroup;
-  usuario: Usuario;
+  usuario: Usuario = new Usuario();
+  pessoa: Pessoa = new Pessoa();
 
   constructor(private global: Global, private usuarioService: UsuarioService, private router: Router, private activeRouter: ActivatedRoute) {
     this.tituloComponente = `${this.global.inclusao}${this.global.titulo}`;
   }
 
   ngOnInit(): void {
-
-    this.formulario = new FormGroup({
-      id: new FormControl(null),
-      login: new FormControl(null),
-      senha: new FormControl(null),
-      nome: new FormControl(null),
-      sobrenome: new FormControl(null),
-      ativo: new FormControl(null)
-    });
-
+    //this.pessoa.nome = "";
+    this.usuario.Pessoa = this.pessoa;
+    console.log(this.usuario);
     this.id = this.activeRouter.snapshot.paramMap.get('id');
+    this.buscarUsuario(this.id);
+    console.log(this.usuario);
     if (this.id != null) {
       this.tituloComponente = `${this.global.alteracao}${this.global.titulo}`;
-    } else {
-      let usuario = this.usuarioService.getById(this.id);
-      console.log(usuario);
     }
-
   }
+
+  buscarUsuario(id: any) {
+    if (this.id != null) {
+      let usuario = this.usuarioService.getById(this.id);
+      usuario.subscribe(usuario => {
+        this.usuario = usuario;
+        this.pessoa = usuario.Pessoa;
+        this.usuario.Pessoa = this.pessoa;
+        console.log(this.usuario);
+      });
+    } else {
+      this.usuario = new Usuario();
+    }
+  }
+
 
   cancelar() {
     this.router.navigate([`/${Global.modulo}`]);
     //this.router.navigateByUrl(`/${Global.modulo}`);
   }
 
-  salvar() {
-    this.usuarioService.salvar(this.formulario.value).subscribe(usuario => this.usuario = usuario);
-    this.router.navigateByUrl(`/${Global.modulo}`);
+  salvar(formulario) {
+    console.log(formulario);
+    //this.usuarioService.salvar(this.formulario.value).subscribe(usuario => this.usuario = usuario);
+    //this.router.navigateByUrl(`/${Global.modulo}`);
   }
 
 }

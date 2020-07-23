@@ -7,5 +7,5 @@ export class Usuario {
     senha: string;
     ativo?: boolean;
     expira: Date;
-    Pessoa: {};
+    Pessoa: Pessoa;
 }
