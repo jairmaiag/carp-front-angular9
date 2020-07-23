@@ -26,16 +26,20 @@ export class UsuarioService {
   }
 
   getById(id: any): Observable<Usuario> {
-    const url = `${this.API}/${id}`;
-    return this.http.get<Usuario>(url);
+    //const url = `${this.API}/${id}`;
+    return this.http.get<Usuario>(`${this.API}/${id}`);
   }
 
-  salvar(usuario: any): Observable<Usuario> {
-    const entidade: Usuario = this.converter(usuario);
-    if (entidade.id) {
-      return this.http.put<Usuario>(this.API, entidade);
+  getByUUId(UUId: string): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.API}/UUId/${UUId}`);
+  }
+
+  salvar(usuario: Usuario): Observable<Usuario> {
+    console.log(usuario);
+    if (usuario.id) {
+      return this.http.put<Usuario>(this.API, usuario);
     } else {
-      return this.http.post<Usuario>(this.API, entidade);
+      return this.http.post<Usuario>(this.API, usuario);
     }
   }
 
@@ -43,26 +47,7 @@ export class UsuarioService {
     if (UUId == null) {
       return;
     }
-    const url = `${this.API}UUId/${UUId}`;
-    return this.http.delete<Usuario>(url);
-  }
-
-  converter(dados: any): Usuario {
-    if (!dados) {
-      return null;
-    }
-    let retorno: Usuario = new Usuario();
-    let pessoa: Pessoa = new Pessoa();
-    let ativo = dados?.ativo
-    ativo = ativo === null ? false : ativo;
-    retorno.id = dados?.id;
-    retorno.login = dados?.login;
-    retorno.senha = dados?.senha;
-    retorno.ativo = ativo;
-    pessoa.nome = dados?.nome;
-    pessoa.sobrenome = dados?.sobrenome;
-    pessoa.ativo = ativo;
-    retorno.Pessoa = pessoa;
-    return retorno;
+    const url = `${this.API}/uuid/${UUId}`;
+    return this.http.delete<Usuario>(`${this.API}/UUId/${UUId}`);
   }
 }
