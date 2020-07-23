@@ -42,17 +42,17 @@ export class UsuarioListComponent implements OnInit {
     this.router.navigateByUrl('/usuario/new');
   }
 
-  editar(id: number) {
-    if (!id) {
+  editar(uuid: string) {
+    if (!uuid) {
       return;
     }
-    this.router.navigateByUrl(`/usuario/${id}/edit`);
+    this.router.navigateByUrl(`/usuario/${uuid}/edit`);
   }
-  visualizar(id: number) {
-    if (!id) {
+  visualizar(uuid: string) {
+    if (!uuid) {
       return;
     }
-    this.router.navigateByUrl(`/usuario/${id}/view`);
+    this.router.navigateByUrl(`/usuario/${uuid}/view`);
   }
   excluir(id: number) {
     if (!id) {
@@ -62,9 +62,11 @@ export class UsuarioListComponent implements OnInit {
   }
   cancelar() {
     this.router.navigate(['/']);
-    //this.router.navigateByUrl('/');
   }
   recarregar() {
-    this.router.navigate(['/usuario']);
+    this.erro = null;
+    this.lista = [];
+    this.listar()
+    //this.router.navigateByUrl('/usuario');
   }
 }
