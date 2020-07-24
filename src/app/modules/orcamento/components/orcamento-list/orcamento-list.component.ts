@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { OrcamentoService } from '../../services/orcamento.service';
+
 @Component({
   selector: 'app-orcamento-list',
   templateUrl: './orcamento-list.component.html',
@@ -8,17 +10,22 @@ import { Router } from '@angular/router';
 })
 export class OrcamentoListComponent implements OnInit {
 
-  titulo: String;
+  titulo: String = OrcamentoService.tituloListagem;
 
-  constructor(private router: Router) { }
+  constructor(private servico: OrcamentoService) { }
 
   ngOnInit(): void {
-    this.titulo = 'Listagem de orçamento'
   }
   novo() {
-    this.router.navigate(['/']);
+    this.servico.novo();
+  }
+  editar(uuid: string) {
+    this.servico.editar(uuid);
+  }
+  detalhar(uuid: string) {
+    this.servico.detalhar(uuid);
   }
   fechar() {
-    this.router.navigate(['/']);
+    this.servico.fechar();
   }
 }
