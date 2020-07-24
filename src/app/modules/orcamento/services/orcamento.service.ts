@@ -15,6 +15,15 @@ export class OrcamentoService {
   static tituloEdicao: string = `${Constantes.alteracao}${OrcamentoService.titulo}`;
   static tituloDetalhe: string = `${Constantes.detalhe}${OrcamentoService.titulo}`;
 
+  constructor(private router: Router) {
+  }
+  getByUUId(UUId: string) {
+
+  }
+  salvar() {
+
+  }
+
   novo() {
     this.router.navigate([`/${OrcamentoService.modulo}/new`]);
   }
@@ -30,5 +39,5 @@ export class OrcamentoService {
   fechar() {
     this.router.navigate([`/`]);
   }
-  constructor(private router: Router) { }
+
 }
