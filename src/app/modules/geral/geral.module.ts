@@ -11,6 +11,7 @@ import { BotaoSalvarComponent } from './components/botao-salvar/botao-salvar.com
 import { BotaoCancelarComponent } from './components/botao-cancelar/botao-cancelar.component';
 import { TelaComponent } from './components/tela/tela.component';
 import { BotaoDetalharComponent } from './components/botao-detalhar/botao-detalhar.component';
+import { BotaoEditarComponent } from './components/botao-editar/botao-editar.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,11 @@ import { BotaoDetalharComponent } from './components/botao-detalhar/botao-detalh
     TituloTelaComponent,
     BotaoFecharComponent,
     BotaoNovoComponent,
+    BotaoEditarComponent,
     BotaoSalvarComponent,
     BotaoCancelarComponent,
     BotaoDetalharComponent,
-    TelaComponent
+    TelaComponent,
   ],
   imports: [
     CommonModule
@@ -33,6 +35,7 @@ import { BotaoDetalharComponent } from './components/botao-detalhar/botao-detalh
     TituloTelaComponent,
     BotaoFecharComponent,
     BotaoNovoComponent,
+    BotaoEditarComponent,
     BotaoSalvarComponent,
     BotaoCancelarComponent,
     BotaoDetalharComponent,
