@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { OrcamentoService } from '../../services/orcamento.service';
 
 @Component({
   selector: 'app-orcamento-form',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrcamentoFormComponent implements OnInit {
 
-  constructor() { }
+  titulo: String = OrcamentoService.tituloInclusao;
+
+  constructor(private servico: OrcamentoService) { }
 
   ngOnInit(): void {
+  }
+
+  voltar() {
+    this.servico.voltar();
   }
 
 }
