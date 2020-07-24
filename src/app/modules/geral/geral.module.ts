@@ -12,6 +12,8 @@ import { BotaoCancelarComponent } from './components/botao-cancelar/botao-cancel
 import { TelaComponent } from './components/tela/tela.component';
 import { BotaoDetalharComponent } from './components/botao-detalhar/botao-detalhar.component';
 import { BotaoEditarComponent } from './components/botao-editar/botao-editar.component';
+import { BotaoSimComponent } from './components/botao-sim/botao-sim.component';
+import { BotaoNaoComponent } from './components/botao-nao/botao-nao.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { BotaoEditarComponent } from './components/botao-editar/botao-editar.com
     BotaoSalvarComponent,
     BotaoCancelarComponent,
     BotaoDetalharComponent,
-    TelaComponent,
+    BotaoSimComponent,
+    BotaoNaoComponent,
+    TelaComponent
   ],
   imports: [
     CommonModule
@@ -39,6 +43,8 @@ import { BotaoEditarComponent } from './components/botao-editar/botao-editar.com
     BotaoSalvarComponent,
     BotaoCancelarComponent,
     BotaoDetalharComponent,
+    BotaoSimComponent,
+    BotaoNaoComponent,
     TelaComponent
   ],
   providers: [Constantes]
