@@ -1,7 +1,12 @@
-<div class="container-fluid border">
-  <titulo-tela titulo="{{ tituloComponente }}"  (acaoFechar)="cancelar()"></titulo-tela>
+<div class="container-fluid sombra rounded p-3 mb-5">
+  <!-- border shadow-lg p-3 mb-5 bg-white rounded -->
+  <titulo-tela
+    titulo="{{ tituloComponente }}"
+    (acaoFechar)="cancelar()"
+  ></titulo-tela>
   <div class="row">
     <div class="col-sm">
+      <botao-novo (acao)="novo()"></botao-novo>
       <button type="button" class="btn btn-primary" (click)="novo()">
         <i class="fa fa-file-o" aria-hidden="true"></i>
       </button>
