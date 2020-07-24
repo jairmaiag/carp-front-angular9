@@ -9,12 +9,13 @@ import { BotaoFecharComponent } from './components/botao-fechar/botao-fechar.com
 import { BotaoNovoComponent } from './components/botao-novo/botao-novo.component';
 import { BotaoSalvarComponent } from './components/botao-salvar/botao-salvar.component';
 import { BotaoCancelarComponent } from './components/botao-cancelar/botao-cancelar.component';
+import { TelaComponent } from './components/tela/tela.component';
 
 @NgModule({
-  declarations: [ModalComponent, BotaoComponent, AcaoComponent, TituloTelaComponent, BotaoFecharComponent, BotaoNovoComponent, BotaoSalvarComponent, BotaoCancelarComponent],
+  declarations: [ModalComponent, BotaoComponent, AcaoComponent, TituloTelaComponent, BotaoFecharComponent, BotaoNovoComponent, BotaoSalvarComponent, BotaoCancelarComponent, TelaComponent],
   imports: [
     CommonModule
   ],
-  exports: [ModalComponent, BotaoComponent, AcaoComponent, TituloTelaComponent, BotaoFecharComponent, BotaoNovoComponent, BotaoSalvarComponent, BotaoCancelarComponent]
+  exports: [ModalComponent, BotaoComponent, AcaoComponent, TituloTelaComponent, BotaoFecharComponent, BotaoNovoComponent, BotaoSalvarComponent, BotaoCancelarComponent, TelaComponent]
 })
 export class GeralModule { }
