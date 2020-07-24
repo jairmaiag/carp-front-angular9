@@ -11,7 +11,11 @@ import { UsuarioListComponent } from './components/usuario-list/usuario-list.com
 import { UsuarioViewComponent } from './components/usuario-view/usuario-view.component';
 
 @NgModule({
-  declarations: [UsuarioFormComponent, UsuarioListComponent, UsuarioViewComponent],
+  declarations: [
+    UsuarioFormComponent,
+    UsuarioListComponent,
+    UsuarioViewComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
