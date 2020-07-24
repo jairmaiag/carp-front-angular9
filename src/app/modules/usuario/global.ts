@@ -5,7 +5,7 @@ export class Global {
     static modulo: String = 'usuario';
     titulo: String = 'Usuário';
     inclusao: String = 'Inclusão de ';
-    alteracao: String = 'Alteração de ';
+    alteracao: String = 'Edição de ';
     detalhe: String = 'Detalhe do ';
     listagem: String = 'Listagem de ';
 }
