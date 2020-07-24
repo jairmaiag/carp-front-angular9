@@ -25,6 +25,9 @@ export class OrcamentoFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  salvar() {
+
+  }
   voltar() {
     this.servico.voltar();
   }

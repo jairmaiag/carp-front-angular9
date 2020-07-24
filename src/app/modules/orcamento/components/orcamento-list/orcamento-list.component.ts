@@ -22,6 +22,9 @@ export class OrcamentoListComponent implements OnInit {
   editar(uuid: string) {
     this.servico.editar(uuid);
   }
+  excluir(uuid: string) {
+    console.log('Excluir ' + uuid);
+  }
   detalhar(uuid: string) {
     this.servico.detalhar(uuid);
   }
