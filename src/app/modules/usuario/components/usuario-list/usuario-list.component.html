@@ -1,9 +1,5 @@
-<br />
-<div class="container-fluid">
-  <titulo-tela
-    titulo="{{ tituloComponente }}"
-    (acaoFechar)="cancelar()"
-  ></titulo-tela>
+<div class="container-fluid border">
+  <titulo-tela titulo="{{ tituloComponente }}"  (acaoFechar)="cancelar()"></titulo-tela>
   <div class="row">
     <div class="col-sm">
       <button type="button" class="btn btn-primary" (click)="novo()">
@@ -13,80 +9,82 @@
   </div>
   <div class="row">
     <div class="col-sm">
-      <p>Filtros</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm">
-      <table
-        class="table table-striped table-hover"
-        *ngIf="paginacao?.rows; else aviso"
-      >
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Login</th>
-            <th scope="col">Nome</th>
-            <th scope="col" style="width: 180px;">Ação</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let usuario of paginacao.rows">
-            <th scope="row">{{ usuario.UUId }}</th>
-            <td>{{ usuario.login }}</td>
-            <td>{{ usuario["Pessoa.nome"] }}</td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                (click)="editar(usuario.UUId)"
-              >
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                (click)="visualizar(usuario.UUId)"
-              >
-                <i class="fa fa-folder-open" aria-hidden="true"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                (click)="visualizar(usuario.UUId)"
-              >
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>
-              <nav aria-label="Navegação de página exemplo">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Anterior">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Anterior</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Próximo">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Próximo</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-
+      <div class="table-responsive-sm">
+        <table
+          class="table table-sm table-striped table-hover"
+          *ngIf="paginacao?.rows; else aviso"
+        >
+          <thead>
+            <tr>
+              <th scope="col" style="width: 20em;">Id</th>
+              <th scope="col">Login</th>
+              <th scope="col">Nome</th>
+              <th scope="col" style="width: 180px;">Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of paginacao.rows">
+              <th scope="row">{{ usuario.UUId }}</th>
+              <td>{{ usuario.login }}</td>
+              <td>{{ usuario["Pessoa.nome"] }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="editar(usuario.UUId)"
+                >
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="visualizar(usuario.UUId)"
+                >
+                  <i class="fa fa-folder-open" aria-hidden="true"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="visualizar(usuario.UUId)"
+                >
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <nav aria-label="Navegação de página exemplo">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Anterior">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Anterior</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Próximo">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Próximo</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
       <ng-template #aviso>
         <div *ngIf="erro; else carregandoDados">
           <div *ngIf="erro.error.mensagem; else erroGenerico">

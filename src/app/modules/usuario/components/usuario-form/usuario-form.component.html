@@ -1,33 +1,14 @@
-<br />
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm">
-      <h3>{{ tituloComponente }}</h3>
-    </div>
-    <div class="col-sm text-right">
-      <button type="button" class="btn btn-primary" (click)="cancelar()">
-        <i class="fa fa-times" aria-hidden="true"></i>
-      </button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm">
-      {{ usuario | json }}
-    </div>
-  </div>
+<div class="container-fluid border">
+  <titulo-tela titulo="{{ tituloComponente }}"  (acaoFechar)="cancelar()"></titulo-tela>
   <div class="row">
     <div class="col-sm">
       <form #formUsu="ngForm" (ngSubmit)="salvar()">
-        <div class="form-group" *ngIf="id != null">
-          <label for="id">Id</label>
-          <input
-            type="text"
-            readonly
-            class="form-control-plaintext"
-            id="id"
-            name="id"
-            [(ngModel)]="usuario.UUId"
-          />
+        <div class="row" *ngIf="id != null">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="id">Id:</label>&nbsp;<strong><span>{{usuario.UUId}}</span></strong>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-sm">
