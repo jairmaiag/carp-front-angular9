@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";;
 
 import { Constantes } from './services/constantes.service';
 import { ModalComponent } from './components/modal/modal.component';
@@ -14,6 +15,7 @@ import { BotaoDetalharComponent } from './components/botao-detalhar/botao-detalh
 import { BotaoEditarComponent } from './components/botao-editar/botao-editar.component';
 import { BotaoSimComponent } from './components/botao-sim/botao-sim.component';
 import { BotaoNaoComponent } from './components/botao-nao/botao-nao.component';
+import { BotaoExcluirComponent } from './components/botao-excluir/botao-excluir.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +30,12 @@ import { BotaoNaoComponent } from './components/botao-nao/botao-nao.component';
     BotaoDetalharComponent,
     BotaoSimComponent,
     BotaoNaoComponent,
+    BotaoExcluirComponent,
     TelaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     ModalComponent,
@@ -45,6 +49,7 @@ import { BotaoNaoComponent } from './components/botao-nao/botao-nao.component';
     BotaoDetalharComponent,
     BotaoSimComponent,
     BotaoNaoComponent,
+    BotaoExcluirComponent,
     TelaComponent
   ],
   providers: [Constantes]
