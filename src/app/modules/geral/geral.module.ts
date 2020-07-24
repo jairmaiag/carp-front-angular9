@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { Constantes } from './services/constantes.service';
 import { ModalComponent } from './components/modal/modal.component';
 import { BotaoComponent } from './components/botao/botao.component';
 import { AcaoComponent } from './components/acao/acao.component';
@@ -12,10 +13,31 @@ import { BotaoCancelarComponent } from './components/botao-cancelar/botao-cancel
 import { TelaComponent } from './components/tela/tela.component';
 
 @NgModule({
-  declarations: [ModalComponent, BotaoComponent, AcaoComponent, TituloTelaComponent, BotaoFecharComponent, BotaoNovoComponent, BotaoSalvarComponent, BotaoCancelarComponent, TelaComponent],
+  declarations: [
+    ModalComponent,
+    BotaoComponent,
+    AcaoComponent,
+    TituloTelaComponent,
+    BotaoFecharComponent,
+    BotaoNovoComponent,
+    BotaoSalvarComponent,
+    BotaoCancelarComponent,
+    TelaComponent
+  ],
   imports: [
     CommonModule
   ],
-  exports: [ModalComponent, BotaoComponent, AcaoComponent, TituloTelaComponent, BotaoFecharComponent, BotaoNovoComponent, BotaoSalvarComponent, BotaoCancelarComponent, TelaComponent]
+  exports: [
+    ModalComponent,
+    BotaoComponent,
+    AcaoComponent,
+    TituloTelaComponent,
+    BotaoFecharComponent,
+    BotaoNovoComponent,
+    BotaoSalvarComponent,
+    BotaoCancelarComponent,
+    TelaComponent
+  ],
+  providers: [Constantes]
 })
 export class GeralModule { }
