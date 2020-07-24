@@ -3,7 +3,7 @@ import { BotaoComponent } from './../botao/botao.component';
 
 
 @Component({
-  selector: 'app-botao-editar',
+  selector: 'botao-editar',
   template: '<botao (acao)="clickBotao()" icone="{{icone}}"></botao>',
   styleUrls: ['./botao-editar.component.css']
 })
