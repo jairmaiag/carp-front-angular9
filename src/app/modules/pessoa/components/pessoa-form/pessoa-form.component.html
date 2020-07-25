@@ -1,1 +1,126 @@
-<tela titulo="{{ titulo }}" (botaoFechar)="voltar()"></tela>
+<tela titulo="{{ titulo }}" (botaoFechar)="voltar()">
+  <div class="row">
+    <div class="col-sm">
+      <form #formUsu="ngForm" (ngSubmit)="salvar()">
+        <div class="row" *ngIf="id != null">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="id">Id:</label>&nbsp;<strong
+                ><span>{{ pessoa.UUId }}</span></strong
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="nome"
+                name="nome"
+                placeholder="Nome"
+                autofocus
+                [(ngModel)]="pessoa.nome"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="nomeMeio">Nome do meio</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="nomeMeio"
+                name="nomeMeio"
+                [(ngModel)]="pessoa.nomeMeio"
+                placeholder="Nome do meio"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="sobrenome">Sobre nome</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="sobrenome"
+                name="sobrenome"
+                [(ngModel)]="pessoa.sobrenome"
+                placeholder="Sobre nome"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="nascimento">Nascimento</label>
+              <input
+                type="date"
+                class="form-control form-control-sm"
+                id="nascimento"
+                name="nascimento"
+                [(ngModel)]="pessoa.nascimento"
+                placeholder="Data de nascimento"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="sexo">Sexo</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="sexo"
+                name="sexo"
+                [(ngModel)]="pessoa.sexo"
+                placeholder="Sexo"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="rg">RG</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="rg"
+                name="rg"
+                [(ngModel)]="pessoa.rg"
+                placeholder="Identidade"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="cpf">CPF</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="cpf"
+                name="cpf"
+                [(ngModel)]="pessoa.cpf"
+                placeholder="CPF"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="ativo"
+            name="ativo"
+            [(ngModel)]="pessoa.ativo"
+          />
+          <label class="form-check-label" for="ativo">Ativo</label>
+        </div>
+        <botao-salvar></botao-salvar>&nbsp;
+        <botao-cancelar></botao-cancelar>&nbsp;
+        <!-- button type="submit" class="btn btn-primary">Salvar</button -->
+      </form>
+    </div>
+  </div>
+</tela>
