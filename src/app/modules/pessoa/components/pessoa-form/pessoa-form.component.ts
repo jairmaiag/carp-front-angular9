@@ -26,7 +26,10 @@ export class PessoaFormComponent implements OnInit {
 
   salvar() {
     this.pessoaService.salvar(this.pessoa);
-    this.pessoaService.voltar();
+    this.voltar();
   }
 
+  voltar() {
+    this.pessoaService.voltar();
+  }
 }

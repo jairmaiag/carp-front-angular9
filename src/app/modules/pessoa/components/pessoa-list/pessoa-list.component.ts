@@ -39,7 +39,6 @@ export class PessoaListComponent implements OnInit {
     });
   }
   novo() {
-    console.log('Novo chamado');
     this.pessoaService.novo();
   }
   editar(uuid: string) {
