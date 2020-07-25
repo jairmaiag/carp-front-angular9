@@ -6,10 +6,11 @@ import { PessoaRoutingModule } from './pessoa-routing.module';
 import { GeralModule } from './../geral/geral.module';
 import { PessoaListComponent } from './components/pessoa-list/pessoa-list.component';
 import { PessoaService } from './services/pessoa.service';
+import { PessoaFormComponent } from './components/pessoa-form/pessoa-form.component';
 
 
 @NgModule({
-  declarations: [PessoaListComponent],
+  declarations: [PessoaListComponent, PessoaFormComponent],
   imports: [
     CommonModule,
     HttpClientModule,
