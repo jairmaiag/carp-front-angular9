@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { environment } from './../../../../environments/environment';
 import { Constantes } from '../../../modules/geral/services/constantes.service';
+import { Paginacao } from './../../../models/paginacao';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,4 +20,8 @@ export class PessoaService {
   private readonly API = `${environment.API}${PessoaService.modulo}`;
 
   constructor(private http: HttpClient) { }
+  getList(): Observable<Paginacao> {
+    return this.http.get<Paginacao>(`${this.API}/paginacao`);
+  }
+
 }
