@@ -30,6 +30,10 @@ export class PessoaService {
   getById(id: any): Observable<Pessoa> {
     return this.http.get<Pessoa>(`${this.API}/${id}`);
   }
+  salvar(pessoa: Pessoa): Pessoa {
+    return null;
+
+  }
 
   fechar() {
     this.router.navigate([`/`]);
