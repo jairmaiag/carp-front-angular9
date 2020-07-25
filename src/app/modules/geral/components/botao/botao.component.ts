@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'botao',
   template: `
-     <button type="button" class="btn {{class}}" (click)="clickBotao()">
+     <button type="{{tipo}}" class="btn {{class}}" (click)="clickBotao()">
        <i class="fa {{icone}}" aria-hidden="true"></i> {{rotulo}}
      </button>`,
   styleUrls: ['./botao.component.css']
@@ -21,6 +21,9 @@ export class BotaoComponent implements OnInit {
 
   @Output()
   acao = new EventEmitter();
+
+  @Input()
+  tipo: string = 'button';
 
   constructor() { }
 
