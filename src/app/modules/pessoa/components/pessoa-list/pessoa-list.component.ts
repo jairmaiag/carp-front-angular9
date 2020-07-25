@@ -11,6 +11,7 @@ import { PessoaService } from '../../services/pessoa.service'
 })
 export class PessoaListComponent implements OnInit {
 
+  titulo: String = PessoaService.tituloListagem;
   paginacao: Paginacao;
   inscricao$: Subscription;
   lista: Pessoa[];
