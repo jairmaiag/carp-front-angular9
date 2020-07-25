@@ -14,6 +14,9 @@ export class BotaoExcluirComponent extends BotaoComponent {
   @Output()
   acao = new EventEmitter();
 
+  @Input()
+  class: string = 'btn-primary';
+
   clickBotao() {
     this.acao.emit();
   }

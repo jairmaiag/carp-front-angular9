@@ -1,0 +1,67 @@
+<div
+  class="btn-toolbar"
+  role="toolbar"
+  aria-label="Toolbar com grupos de botões"
+>
+  <div class="btn-group mr-2" role="group" aria-label="Botoes de acao">
+    <button type="button" class="btn btn-primary" (click)="clickEdicao()">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="btn btn-primary" (click)="clickVisaulizacao()">
+      <i class="fa fa-folder-open" aria-hidden="true"></i>
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#modalExcluir"
+    >
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="modalExcluir"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modalExcluirLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalExcluirLabel">
+          Exclusão
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Fechar"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja <strong>excluir</strong> o registro ?
+      </div>
+      <div class="modal-footer">
+        <div
+          class="btn-toolbar"
+          role="toolbar"
+          aria-label="Toolbar com grupos de botões"
+        >
+          <div class="btn-group mr-2" role="group" aria-label="Botoes de acao">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              <i class="fa fa-check" aria-hidden="true"></i> Sim
+            </button>
+            <button type="button" class="btn-secondary" data-dismiss="modal">
+              <i class="fa fa-ban" aria-hidden="true"></i> Não
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

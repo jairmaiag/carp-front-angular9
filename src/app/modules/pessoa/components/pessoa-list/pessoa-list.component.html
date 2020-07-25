@@ -30,27 +30,11 @@
               <td>{{ entidade.rg }}</td>
               <td>{{ entidade.cpf }}</td>
               <td>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  (click)="editar(entidade.UUId)"
-                >
-                  <i class="fa fa-pencil" aria-hidden="true"></i>
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  (click)="detalhar(entidade.UUId)"
-                >
-                  <i class="fa fa-folder-open" aria-hidden="true"></i>
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  (click)="excluir(entidade.UUId)"
-                >
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
+                <botoes-acao
+                  (acaoEdicao)="editar(entidade.UUId)"
+                  (acaoVisualizacao)="detalhar(entidade.UUId)"
+                  (acaoExclusao)="excluir(entidade.UUId)"
+                ></botoes-acao>
               </td>
             </tr>
           </tbody>
