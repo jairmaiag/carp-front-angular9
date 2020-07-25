@@ -37,4 +37,7 @@ export class PessoaListComponent implements OnInit {
       this.erro = erro;
     });
   }
+  fechar() {
+    this.pessoaService.fechar();
+  }
 }
