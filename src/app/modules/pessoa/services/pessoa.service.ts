@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -19,7 +20,7 @@ export class PessoaService {
 
   private readonly API = `${environment.API}${PessoaService.modulo}`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   getList(): Observable<Paginacao> {
     return this.http.get<Paginacao>(`${this.API}/paginacao`);
