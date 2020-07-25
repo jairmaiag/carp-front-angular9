@@ -20,6 +20,7 @@ export class PessoaService {
   private readonly API = `${environment.API}${PessoaService.modulo}`;
 
   constructor(private http: HttpClient) { }
+
   getList(): Observable<Paginacao> {
     return this.http.get<Paginacao>(`${this.API}/paginacao`);
   }
