@@ -26,4 +26,8 @@ export class PessoaService {
     return this.http.get<Paginacao>(`${this.API}/paginacao`);
   }
 
+  fechar() {
+    this.router.navigate([`/`]);
+  }
+
 }
