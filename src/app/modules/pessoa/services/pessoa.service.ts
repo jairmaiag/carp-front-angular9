@@ -34,6 +34,16 @@ export class PessoaService {
     return null;
 
   }
+  novo() {
+    this.router.navigate([`/${PessoaService.modulo}/new`]);
+  }
+  editar(uuid: string) {
+    this.router.navigate([`/${PessoaService.modulo}/${uuid}/edit`]);
+  }
+  detalhar(uuid: string) {
+    this.router.navigate([`/${PessoaService.modulo}/${uuid}/view`]);
+  }
+
   voltar() {
     this.router.navigate([`/${PessoaService.modulo}`]);
   }
