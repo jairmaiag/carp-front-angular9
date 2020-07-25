@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 
 import { PessoaService } from '../../services/pessoa.service'
 import { Pessoa } from '../../models/pessoa';
+import { Sexo } from '../../models/Sexo';
 @Component({
   selector: 'app-pessoa-form',
   templateUrl: './pessoa-form.component.html',
@@ -14,9 +15,13 @@ export class PessoaFormComponent implements OnInit {
   titulo: String = PessoaService.tituloInclusao;
   id: any;
   pessoa: Pessoa = new Pessoa();
+  sexo: Sexo[] = new Array<Sexo>();
   inscricao$: Subscription;
 
-  constructor(private pessoaService: PessoaService, private activeRouter: ActivatedRoute) { }
+  constructor(private pessoaService: PessoaService, private activeRouter: ActivatedRoute) {
+    this.sexo.push(new Sexo('M', 'Masculino'));
+    this.sexo.push(new Sexo('F', 'Feminino'));
+  }
 
   ngOnInit(): void {
     this.id = this.activeRouter.snapshot.paramMap.get('uuid');
@@ -32,8 +37,7 @@ export class PessoaFormComponent implements OnInit {
   }
   salvar() {
     const retorno = this.pessoaService.salvar(this.pessoa);
-    this.inscricao$ = retorno.subscribe(console.log);
-    this.voltar();
+    this.inscricao$ = retorno.subscribe(p => this.voltar());
   }
 
   voltar() {
