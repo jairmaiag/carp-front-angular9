@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from "@angular/common/http";
 
 import { PessoaRoutingModule } from './pessoa-routing.module';
 import { GeralModule } from './../geral/geral.module';
@@ -11,6 +12,7 @@ import { PessoaService } from './services/pessoa.service';
   declarations: [PessoaListComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     PessoaRoutingModule,
     GeralModule
   ],
