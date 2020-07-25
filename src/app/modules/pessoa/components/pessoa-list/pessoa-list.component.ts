@@ -38,7 +38,13 @@ export class PessoaListComponent implements OnInit {
       this.erro = erro;
     });
   }
+  novo() { }
+  editar(uuid: string) { }
+  excluir(uuid: string) { }
+  detalhar(uuid: string) { }
+
   fechar() {
     this.pessoaService.fechar();
   }
+  recarregar() { }
 }

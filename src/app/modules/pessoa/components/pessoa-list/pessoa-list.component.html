@@ -1,1 +1,123 @@
-<tela titulo="{{ titulo }}" (botaoFechar)="fechar()"></tela>
+<tela titulo="{{ titulo }}" (botaoFechar)="fechar()">
+  <div class="row">
+    <div class="col-sm">
+      <div class="table-responsive-sm">
+        <table
+          class="table table-sm table-striped table-hover"
+          *ngIf="paginacao?.rows; else aviso"
+        >
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col" style="width: 180px;">Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let entidade of paginacao.rows">
+              <td>
+                {{ entidade.nome }} {{ entidade.nomeMeio }}
+                {{ entidade.sobrenome }}
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="editar(entidade.UUId)"
+                >
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="detalhar(entidade.UUId)"
+                >
+                  <i class="fa fa-folder-open" aria-hidden="true"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="detalhar(entidade.UUId)"
+                >
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <nav aria-label="Navegação de página exemplo">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Anterior">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Anterior</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Próximo">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Próximo</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <ng-template #aviso>
+        <div *ngIf="erro; else carregandoDados">
+          <div *ngIf="erro.error.mensagem; else erroGenerico">
+            {{ erro.error.mensagem }}
+            <p>Clique no botão abaixo para recarregar.</p>
+            <p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="recarregar()"
+              >
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+              </button>
+            </p>
+          </div>
+
+          <ng-template #erroGenerico>
+            <p>Falha: {{ erro.message }}</p>
+            <p>Url: {{ erro.url }}</p>
+            <p>
+              Entre em contato com
+              <a href="mailto:jairmaiag@gmail.com?subject=Erro"
+                >jairmaiag@gmail.com</a
+              >
+            </p>
+            <p>Clique no botão abaixo para recarregar.</p>
+            <p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="recarregar()"
+              >
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+              </button>
+            </p>
+          </ng-template>
+        </div>
+        <ng-template #carregandoDados>
+          <i class="fa fa-spinner fa-2x fa-spin" aria-hidden="true"></i><br />
+          Aguarde...
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</tela>
