@@ -70,14 +70,18 @@
           <div class="col-sm">
             <div class="form-group">
               <label for="sexo">Sexo</label>
-              <input
+              <select
                 type="text"
                 class="form-control form-control-sm"
                 id="sexo"
                 name="sexo"
                 [(ngModel)]="pessoa.sexo"
                 placeholder="Sexo"
-              />
+              >
+                <option *ngFor="let sex of sexo" value="{{ sex.id }}">{{
+                  sex.descricao
+                }}</option>
+              </select>
             </div>
           </div>
           <div class="col-sm">
