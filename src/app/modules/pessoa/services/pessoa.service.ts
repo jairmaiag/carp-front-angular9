@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { environment } from './../../../../environments/environment';
 import { Constantes } from '../../../modules/geral/services/constantes.service';
 import { Paginacao } from './../../../models/paginacao';
+import { Pessoa } from '../models/pessoa';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +25,10 @@ export class PessoaService {
 
   getList(): Observable<Paginacao> {
     return this.http.get<Paginacao>(`${this.API}/paginacao`);
+  }
+
+  getById(id: any): Observable<Pessoa> {
+    return this.http.get<Pessoa>(`${this.API}/${id}`);
   }
 
   fechar() {
