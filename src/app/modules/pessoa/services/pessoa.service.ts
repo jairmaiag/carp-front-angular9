@@ -34,6 +34,9 @@ export class PessoaService {
     return null;
 
   }
+  voltar() {
+    this.router.navigate([`/${PessoaService.modulo}`]);
+  }
 
   fechar() {
     this.router.navigate([`/`]);
