@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { Paginacao } from './../../../../models/paginacao';
@@ -21,7 +21,13 @@ export class PessoaListComponent implements OnInit {
   ngOnInit(): void {
     this.listar();
   }
-  
+
+  OnDestroy(): void {
+    if (this.inscricao$) {
+      this.inscricao$.unsubscribe();
+    }
+  }
+
   listar() {
     const paginacao = this.pessoaService.getList();
     this.inscricao$ = paginacao.subscribe(retorno => {
