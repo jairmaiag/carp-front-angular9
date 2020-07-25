@@ -30,9 +30,22 @@ export class PessoaService {
   getById(id: any): Observable<Pessoa> {
     return this.http.get<Pessoa>(`${this.API}/${id}`);
   }
-  salvar(pessoa: Pessoa): Pessoa {
-    return null;
 
+  getBUUId(id: any): Observable<Pessoa> {
+    return this.http.get<Pessoa>(`${this.API}/UUId/${id}`);
+  }
+  salvar(pessoa: Pessoa): Observable<Pessoa> {
+    if (pessoa == null) {
+      return null;
+    }
+    let caminho = this.API;
+    console.log(pessoa);
+    console.log(caminho);
+    if (pessoa.id) {
+      return this.http.put<Pessoa>(caminho, pessoa);
+    } else {
+      return this.http.post<Pessoa>(caminho, pessoa);
+    }
   }
   novo() {
     this.router.navigate([`/${PessoaService.modulo}/new`]);
