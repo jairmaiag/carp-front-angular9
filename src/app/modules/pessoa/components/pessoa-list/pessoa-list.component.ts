@@ -40,6 +40,7 @@ export class PessoaListComponent implements OnInit {
   }
   novo() {
     this.pessoaService.novo();
+    this.listar();
   }
   editar(uuid: string) {
     this.pessoaService.editar(uuid);
