@@ -47,16 +47,12 @@
         Tem certeza que deseja <strong>excluir</strong> o registro ?
       </div>
       <div class="modal-footer">
-        <div
-          class="btn-toolbar"
-          role="toolbar"
-          aria-label="Toolbar com grupos de botões"
-        >
+        <div class="btn-group btn-group-sm" role="group" aria-label="Exemplo básico">
           <div class="btn-group mr-2" role="group" aria-label="Botoes de acao">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="clickExclusao()">
               <i class="fa fa-check" aria-hidden="true"></i> Sim
             </button>
-            <button type="button" class="btn-secondary" data-dismiss="modal">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
               <i class="fa fa-ban" aria-hidden="true"></i> Não
             </button>
           </div>

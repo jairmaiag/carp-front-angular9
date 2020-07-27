@@ -45,7 +45,9 @@ export class PessoaListComponent implements OnInit {
   editar(uuid: string) {
     this.pessoaService.editar(uuid);
   }
-  excluir(uuid: string) { }
+  excluir(uuid: string) {
+    console.log('Cliou em sim');
+  }
   detalhar(uuid: string) {
     this.pessoaService.detalhar(uuid);
   }
