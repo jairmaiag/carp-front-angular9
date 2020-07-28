@@ -39,13 +39,17 @@ export class PessoaService {
       return null;
     }
     let caminho = this.API;
-    console.log(pessoa);
-    console.log(caminho);
     if (pessoa.id) {
       return this.http.put<Pessoa>(caminho, pessoa);
     } else {
       return this.http.post<Pessoa>(caminho, pessoa);
     }
+  }
+  excluir(id: number):Observable<number> {
+    if (!id) {
+      return;
+    }
+    return this.http.delete<number>(`${this.API}/${id}`);
   }
   novo() {
     this.router.navigate([`/${PessoaService.modulo}/new`]);
@@ -56,7 +60,6 @@ export class PessoaService {
   detalhar(uuid: string) {
     this.router.navigate([`/${PessoaService.modulo}/${uuid}/view`]);
   }
-
   voltar() {
     this.router.navigate([`/${PessoaService.modulo}`]);
   }
