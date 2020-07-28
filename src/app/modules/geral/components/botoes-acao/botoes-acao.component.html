@@ -10,14 +10,17 @@
     <button type="button" class="btn btn-primary" (click)="clickVisaulizacao()">
       <i class="fa fa-folder-open" aria-hidden="true"></i>
     </button>
-    <button
+    <button type="button" class="btn btn-primary" (click)="clickExclusao()">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+    <!-- button
       type="button"
       class="btn btn-primary"
       data-toggle="modal"
       data-target="#modalExcluir"
     >
       <i class="fa fa-trash" aria-hidden="true"></i>
-    </button>
+    </button -->
   </div>
 </div>
 <div
@@ -47,9 +50,18 @@
         Tem certeza que deseja <strong>excluir</strong> o registro ?
       </div>
       <div class="modal-footer">
-        <div class="btn-group btn-group-sm" role="group" aria-label="Exemplo básico">
+        <div
+          class="btn-group btn-group-sm"
+          role="group"
+          aria-label="Exemplo básico"
+        >
           <div class="btn-group mr-2" role="group" aria-label="Botoes de acao">
-            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="clickExclusao()">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-dismiss="modal"
+              (click)="clickExclusao()"
+            >
               <i class="fa fa-check" aria-hidden="true"></i> Sim
             </button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">

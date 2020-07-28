@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'botoes-acao',
@@ -6,6 +6,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./botoes-acao.component.css']
 })
 export class BotoesAcaoComponent implements OnInit {
+
+  @Input()
+  idRegistro: number;
 
   @Output()
   acaoEdicao = new EventEmitter();
@@ -16,7 +19,8 @@ export class BotoesAcaoComponent implements OnInit {
   @Output()
   acaoExclusao = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -28,7 +32,7 @@ export class BotoesAcaoComponent implements OnInit {
     this.acaoVisualizacao.emit()
   }
   clickExclusao() {
-    this.acaoExclusao.emit();
+    return this.acaoExclusao.emit(this.idRegistro);
+    //console.log(this.idRegistro);
   }
-
 }
