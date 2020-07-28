@@ -38,14 +38,13 @@ export class PessoaService {
     if (pessoa == null) {
       return null;
     }
-    let caminho = this.API;
     if (pessoa.id) {
-      return this.http.put<Pessoa>(caminho, pessoa);
+      return this.http.put<Pessoa>(this.API, pessoa);
     } else {
-      return this.http.post<Pessoa>(caminho, pessoa);
+      return this.http.post<Pessoa>(this.API, pessoa);
     }
   }
-  excluir(id: number):Observable<number> {
+  excluir(id: number): Observable<number> {
     if (!id) {
       return;
     }
