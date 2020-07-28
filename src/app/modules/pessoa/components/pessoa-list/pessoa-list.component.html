@@ -31,10 +31,10 @@
               <td>{{ entidade.cpf }}</td>
               <td>
                 <botoes-acao
+                  [idRegistro]="entidade.id"
                   (acaoEdicao)="editar(entidade.UUId)"
                   (acaoVisualizacao)="detalhar(entidade.UUId)"
                   (acaoExclusao)="excluir(entidade.id)"
-                  [idRegistro]="entidade.id"
                 ></botoes-acao>
               </td>
             </tr>

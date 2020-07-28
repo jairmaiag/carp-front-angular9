@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import * as $ from "jquery";
 
 @Component({
   selector: 'botoes-acao',
@@ -23,6 +24,13 @@ export class BotoesAcaoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //console.log(this.acaoExclusao);
+    let m = $('#modalExcluir');
+    console.log(m);
+    m.on('show.bs.modal', function (event) {
+      console.log(event)
+    });
+
   }
 
   clickEdicao() {
@@ -32,6 +40,7 @@ export class BotoesAcaoComponent implements OnInit {
     this.acaoVisualizacao.emit()
   }
   clickExclusao() {
+
     return this.acaoExclusao.emit(this.idRegistro);
     //console.log(this.idRegistro);
   }
