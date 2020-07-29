@@ -15,7 +15,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AcessoComponent } from './components/acesso/acesso.component';
-import { ModalComponent } from './components/geral/modal/modal.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -23,8 +22,7 @@ registerLocaleData(localePt);
     AppComponent,
     HomeComponent,
     MenuComponent,
-    AcessoComponent,
-    ModalComponent
+    AcessoComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +38,6 @@ registerLocaleData(localePt);
   providers: [
     { provide: LOCALE_ID, useValue: "pt-BR" }
   ],
-  exports: [ModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
