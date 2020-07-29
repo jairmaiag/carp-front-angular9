@@ -3,6 +3,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { GeralModule } from './modules/geral/geral.module';
@@ -11,16 +16,15 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AcessoComponent } from './components/acesso/acesso.component';
 import { ModalComponent } from './components/geral/modal/modal.component';
-import { TituloTelaComponent } from './components/titulo-tela/titulo-tela.component';
 
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuComponent,
     AcessoComponent,
-    ModalComponent,
-    TituloTelaComponent
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +32,8 @@ import { TituloTelaComponent } from './components/titulo-tela/titulo-tela.compon
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgbModule,
+    ModalModule.forRoot(),
     AppRoutingModule,
     GeralModule
   ],
