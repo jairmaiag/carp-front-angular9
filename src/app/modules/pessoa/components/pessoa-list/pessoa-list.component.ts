@@ -55,6 +55,7 @@ export class PessoaListComponent implements OnInit {
   }
 
   fechar() {
+    console.log('Fechar da listagem');
     this.pessoaService.fechar();
   }
   recarregar() { }

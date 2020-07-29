@@ -25,13 +25,12 @@
                 {{ entidade.sobrenome }}
               </td>
               <td>{{ entidade.ativo }}</td>
-              <td>{{ entidade.nascimento }}</td>
+              <td>{{ entidade.nascimento | date: "shortDate" }}</td>
               <td>{{ entidade.sexo }}</td>
               <td>{{ entidade.rg }}</td>
               <td>{{ entidade.cpf }}</td>
               <td>
                 <botoes-acao
-                  [idRegistro]="entidade.id"
                   (acaoEdicao)="editar(entidade.UUId)"
                   (acaoVisualizacao)="detalhar(entidade.UUId)"
                   (acaoExclusao)="excluir(entidade.id)"
