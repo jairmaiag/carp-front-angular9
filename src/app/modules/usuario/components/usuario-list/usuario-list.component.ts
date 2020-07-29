@@ -12,19 +12,21 @@ import { UsuarioService } from '../../services/usuario.service';
   templateUrl: './usuario-list.component.html',
   styleUrls: ['./usuario-list.component.css']
 })
-export class UsuarioListComponent implements OnInit {
-  tituloComponente = "Listagem de Usuário";
-  erro: any = null;
-  lista: Usuario[];
+export class UsuarioListComponent implements OnInit, OnDestroy {
+
+  titulo: String = UsuarioService.tituloListagem;
   paginacao: Paginacao;
   inscricao$: Subscription;
+  lista: Usuario[];
+  erro: any = null;
 
   constructor(private usuarioService: UsuarioService, private router: Router, private activeRouter: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.listar();
   }
-  OnDestroy() {
+
+  ngOnDestroy() {
     if (this.inscricao$) {
       this.inscricao$.unsubscribe();
     }
@@ -38,27 +40,30 @@ export class UsuarioListComponent implements OnInit {
       this.erro = erro;
     });
   }
-  novo() {
-    this.router.navigateByUrl('/usuario/new');
-  }
 
-  editar(uuid: string) {
-    if (!uuid) {
-      return;
-    }
-    this.router.navigateByUrl(`/usuario/${uuid}/edit`);
-  }
   visualizar(uuid: string) {
     if (!uuid) {
       return;
     }
     this.router.navigateByUrl(`/usuario/${uuid}/view`);
   }
+  novo() {
+    this.usuarioService.novo();
+    this.listar();
+  }
+  editar(uuid: string) {
+    this.usuarioService.editar(uuid);
+  }
   excluir(id: number) {
-    if (!id) {
-      return;
-    }
-    this.router.navigateByUrl('/usuario');
+    const excluido = this.usuarioService.excluir(id);
+    this.inscricao$ = excluido.subscribe(retorno => this.listar());
+  }
+  detalhar(uuid: string) {
+    this.usuarioService.detalhar(uuid);
+  }
+
+  fechar() {
+    this.usuarioService.fechar();
   }
   cancelar() {
     this.router.navigate(['/']);
@@ -67,6 +72,5 @@ export class UsuarioListComponent implements OnInit {
     this.erro = null;
     this.lista = [];
     this.listar()
-    //this.router.navigateByUrl('/usuario');
   }
 }

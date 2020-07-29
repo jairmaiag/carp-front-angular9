@@ -1,11 +1,13 @@
-import { Paginacao } from './../../../models/paginacao';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
-import { environment } from './../../../../environments/environment.prod';
+import { environment } from './../../../../environments/environment';
+import { Constantes } from '../../../modules/geral/services/constantes.service';
+
+import { Paginacao } from './../../../models/paginacao';
 import { Global } from './../global';
 import { Pessoa } from './../../../models/pessoa';
 import { Usuario } from './../models/usuario';
@@ -15,9 +17,16 @@ import { Usuario } from './../models/usuario';
 })
 export class UsuarioService {
 
-  private readonly API = `${environment.API}${Global.modulo}`;
+  static modulo: string = 'usuario';
+  static titulo: string = 'Usuário';
+  static tituloListagem: string = `${Constantes.listagem}${UsuarioService.titulo}`;
+  static tituloInclusao: string = `${Constantes.inclusao}${UsuarioService.titulo}`;
+  static tituloEdicao: string = `${Constantes.alteracao}${UsuarioService.titulo}`;
+  static tituloDetalhe: string = `${Constantes.detalhe}${UsuarioService.titulo}`;
 
-  constructor(private http: HttpClient) { }
+  private readonly API = `${environment.API}${UsuarioService.modulo}`;
+
+  constructor(private http: HttpClient, private router: Router) { }
 
   getList(): Observable<Paginacao> {
     return this.http.get<Paginacao>(`${this.API}/paginacao`);
@@ -32,6 +41,9 @@ export class UsuarioService {
   }
 
   salvar(usuario: Usuario): Observable<Usuario> {
+    if (usuario == null) {
+      return null;
+    }
     if (usuario.id) {
       return this.http.put<Usuario>(this.API, usuario);
     } else {
@@ -39,11 +51,30 @@ export class UsuarioService {
     }
   }
 
-  delete(UUId: any): Observable<Usuario> {
-    if (UUId == null) {
+  excluir(id: number): Observable<number> {
+    if (!id) {
       return;
     }
-    const url = `${this.API}/uuid/${UUId}`;
-    return this.http.delete<Usuario>(`${this.API}/UUId/${UUId}`);
+    return this.http.delete<number>(`${this.API}/${id}`);
+  }
+
+  novo() {
+    this.router.navigate([`/${UsuarioService.modulo}/new`]);
+  }
+
+  editar(uuid: string) {
+    this.router.navigate([`/${UsuarioService.modulo}/${uuid}/edit`]);
+  }
+
+  detalhar(uuid: string) {
+    this.router.navigate([`/${UsuarioService.modulo}/${uuid}/view`]);
+  }
+
+  voltar() {
+    this.router.navigate([`/${UsuarioService.modulo}`]);
+  }
+
+  fechar() {
+    this.router.navigate([`/`]);
   }
 }
