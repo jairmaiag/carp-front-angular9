@@ -1,7 +1,6 @@
 import { ItemMenu } from './../../models/item-menu';
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-//import * as $ from "jquery";
 
 import { MenuService } from './../../services/menu.service';
 
@@ -31,5 +30,15 @@ export class MenuComponent implements OnInit {
   }
   getItensMenu(): Array<ItemMenu> {
     return this.itensMenu;
+  }
+
+  onHidden(): void {
+    console.log('Dropdown is hidden');
+  }
+  onShown(): void {
+    console.log('Dropdown is shown');
+  }
+  isOpenChange(): void {
+    console.log('Dropdown state is changed');
   }
 }

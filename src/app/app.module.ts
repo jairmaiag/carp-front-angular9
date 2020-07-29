@@ -8,6 +8,7 @@ import localePt from '@angular/common/locales/pt';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { GeralModule } from './modules/geral/geral.module';
@@ -32,6 +33,7 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     NgbModule,
     ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
     AppRoutingModule,
     GeralModule
   ],
