@@ -34,6 +34,7 @@ export class PessoaService {
   getBUUId(id: any): Observable<Pessoa> {
     return this.http.get<Pessoa>(`${this.API}/UUId/${id}`);
   }
+
   salvar(pessoa: Pessoa): Observable<Pessoa> {
     if (pessoa == null) {
       return null;
@@ -66,5 +67,4 @@ export class PessoaService {
   fechar() {
     this.router.navigate([`/`]);
   }
-
 }

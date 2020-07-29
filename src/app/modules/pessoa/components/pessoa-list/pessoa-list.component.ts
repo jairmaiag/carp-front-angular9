@@ -9,7 +9,7 @@ import { PessoaService } from '../../services/pessoa.service'
   templateUrl: './pessoa-list.component.html',
   styleUrls: ['./pessoa-list.component.css']
 })
-export class PessoaListComponent implements OnInit {
+export class PessoaListComponent implements OnInit, OnDestroy {
 
   titulo: String = PessoaService.tituloListagem;
   paginacao: Paginacao;
@@ -23,7 +23,7 @@ export class PessoaListComponent implements OnInit {
     this.listar();
   }
 
-  OnDestroy(): void {
+  ngOnDestroy(): void {
     if (this.inscricao$) {
       this.inscricao$.unsubscribe();
     }

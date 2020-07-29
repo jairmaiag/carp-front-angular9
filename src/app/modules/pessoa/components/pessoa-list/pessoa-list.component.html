@@ -30,11 +30,7 @@
               <td>{{ entidade.rg }}</td>
               <td>{{ entidade.cpf }}</td>
               <td>
-                <botoes-acao
-                  (acaoEdicao)="editar(entidade.UUId)"
-                  (acaoVisualizacao)="detalhar(entidade.UUId)"
-                  (acaoExclusao)="excluir(entidade.id)"
-                ></botoes-acao>
+                <botoes-acao (acaoEdicao)="editar(entidade.UUId)" (acaoVisualizacao)="detalhar(entidade.UUId)" (acaoExclusao)="excluir(entidade.id)"></botoes-acao>
               </td>
             </tr>
           </tbody>
