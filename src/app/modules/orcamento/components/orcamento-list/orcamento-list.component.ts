@@ -31,4 +31,7 @@ export class OrcamentoListComponent implements OnInit {
   fechar() {
     this.servico.fechar();
   }
+  testeSim() {
+    console.log('Clicou no sim');
+  }
 }
