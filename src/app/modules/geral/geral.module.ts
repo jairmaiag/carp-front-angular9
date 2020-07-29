@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";;
 
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 import { Constantes } from './services/constantes.service';
 import { ModalComponent } from './components/modal/modal.component';
 import { BotaoComponent } from './components/botao/botao.component';
@@ -17,6 +20,7 @@ import { BotaoSimComponent } from './components/botao-sim/botao-sim.component';
 import { BotaoNaoComponent } from './components/botao-nao/botao-nao.component';
 import { BotaoExcluirComponent } from './components/botao-excluir/botao-excluir.component';
 import { BotoesAcaoComponent } from './components/botoes-acao/botoes-acao.component';
+import { ModalSimnaoComponent } from './components/modal-simnao/modal-simnao.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +37,14 @@ import { BotoesAcaoComponent } from './components/botoes-acao/botoes-acao.compon
     BotaoNaoComponent,
     BotaoExcluirComponent,
     TelaComponent,
-    BotoesAcaoComponent
+    BotoesAcaoComponent,
+    ModalSimnaoComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot(),
+    AlertModule.forRoot()
   ],
   exports: [
     ModalComponent,
@@ -53,7 +60,8 @@ import { BotoesAcaoComponent } from './components/botoes-acao/botoes-acao.compon
     BotaoNaoComponent,
     BotaoExcluirComponent,
     BotoesAcaoComponent,
-    TelaComponent
+    TelaComponent,
+    ModalSimnaoComponent
   ],
   providers: [Constantes]
 })
