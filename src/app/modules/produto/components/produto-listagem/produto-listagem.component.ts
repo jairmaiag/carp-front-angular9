@@ -19,6 +19,5 @@ export class ProdutoListagemComponent implements OnInit {
   }
 
   excluir(id: any): void {
-    console.log(id);
   }
 }

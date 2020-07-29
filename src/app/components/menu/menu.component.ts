@@ -31,14 +31,4 @@ export class MenuComponent implements OnInit {
   getItensMenu(): Array<ItemMenu> {
     return this.itensMenu;
   }
-
-  onHidden(): void {
-    console.log('Dropdown is hidden');
-  }
-  onShown(): void {
-    console.log('Dropdown is shown');
-  }
-  isOpenChange(): void {
-    console.log('Dropdown state is changed');
-  }
 }

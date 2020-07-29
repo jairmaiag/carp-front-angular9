@@ -23,7 +23,6 @@ export class OrcamentoListComponent implements OnInit {
     this.servico.editar(uuid);
   }
   excluir(uuid: string) {
-    console.log('Excluir ' + uuid);
   }
   detalhar(uuid: string) {
     this.servico.detalhar(uuid);
@@ -32,6 +31,5 @@ export class OrcamentoListComponent implements OnInit {
     this.servico.fechar();
   }
   testeSim() {
-    console.log('Clicou no sim');
   }
 }

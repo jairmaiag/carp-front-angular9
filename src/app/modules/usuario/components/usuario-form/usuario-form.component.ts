@@ -23,10 +23,7 @@ export class UsuarioFormComponent implements OnInit {
   ngOnInit(): void {
     //this.pessoa.nome = "";
     this.usuario.Pessoa = this.pessoa;
-    console.log(this.usuario);
     this.id = this.activeRouter.snapshot.paramMap.get('uuid');
-    this.buscarUsuario(this.id);
-    console.log(this.usuario);
     if (this.id != null) {
       this.tituloComponente = `${this.global.alteracao}${this.global.titulo}`;
     }
@@ -39,7 +36,6 @@ export class UsuarioFormComponent implements OnInit {
         this.usuario = usuario;
         this.pessoa = usuario.Pessoa;
         this.usuario.Pessoa = this.pessoa;
-        console.log(this.usuario);
       });
     } else {
       this.usuario.Pessoa = this.pessoa;

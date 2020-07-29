@@ -21,12 +21,9 @@ export class UsuarioService {
 
   getList(): Observable<Paginacao> {
     return this.http.get<Paginacao>(`${this.API}/paginacao`);
-    // return this.http.get<Paginacao>(`${this.API}/paginacao`).pipe(tap(console.log));
-    // return this.http.get<Usuario[]>(`${this.API}/paginacao`).pipe(tap(console.log));
   }
 
   getById(id: any): Observable<Usuario> {
-    //const url = `${this.API}/${id}`;
     return this.http.get<Usuario>(`${this.API}/${id}`);
   }
 
@@ -35,7 +32,6 @@ export class UsuarioService {
   }
 
   salvar(usuario: Usuario): Observable<Usuario> {
-    console.log(usuario);
     if (usuario.id) {
       return this.http.put<Usuario>(this.API, usuario);
     } else {
