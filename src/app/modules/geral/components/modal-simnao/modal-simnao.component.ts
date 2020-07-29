@@ -8,6 +8,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class ModalSimnaoComponent implements OnInit {
   modalRef: BsModalRef;
+
+  @Input()
   pergunta: string = 'Digite sua pergunta para sim ou não ?';
 
   @Output()
