@@ -1,8 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-.sombra {
-  width: 400px;
-  box-shadow: 0 0.3em 1em #000;
-}
+@import "theme.css";
+
 .card {
   box-shadow: 0 0.3em 1em #000;
 }
