@@ -8,8 +8,6 @@ import { environment } from './../../../../environments/environment';
 import { Constantes } from '../../../modules/geral/services/constantes.service';
 
 import { Paginacao } from './../../../models/paginacao';
-import { Global } from './../global';
-import { Pessoa } from './../../../models/pessoa';
 import { Usuario } from './../models/usuario';
 
 @Injectable({

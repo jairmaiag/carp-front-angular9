@@ -1,8 +1,8 @@
-import { Pessoa } from './../../../../models/pessoa';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 import { Usuario } from './../../models/usuario';
-import { Global } from './../../global';
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
@@ -10,47 +10,40 @@ import { UsuarioService } from '../../services/usuario.service';
   templateUrl: './usuario-form.component.html',
   styleUrls: ['./usuario-form.component.css']
 })
-export class UsuarioFormComponent implements OnInit {
+export class UsuarioFormComponent implements OnInit, OnDestroy {
+  titulo: String = UsuarioService.tituloInclusao;
   id: any;
-  tituloComponente: String;
-  usuario: Usuario = new Usuario();
-  pessoa: Pessoa = new Pessoa();
+  usuario: Usuario = Usuario.getInstance();
+  inscricao$: Subscription;
 
-  constructor(private global: Global, private usuarioService: UsuarioService, private router: Router, private activeRouter: ActivatedRoute) {
-    this.tituloComponente = `${this.global.inclusao}${this.global.titulo}`;
+  constructor(private usuarioService: UsuarioService, private activeRouter: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    //this.pessoa.nome = "";
-    this.usuario.Pessoa = this.pessoa;
     this.id = this.activeRouter.snapshot.paramMap.get('uuid');
     if (this.id != null) {
-      this.tituloComponente = `${this.global.alteracao}${this.global.titulo}`;
+      this.titulo = `${UsuarioService.tituloEdicao}`;
+      this.buscarUsuario(this.id);
     }
   }
-
+  ngOnDestroy(): void {
+    if (this.inscricao$) {
+      this.inscricao$.unsubscribe();
+    }
+  }
   buscarUsuario(id: any) {
     if (this.id != null) {
-      let usuario = this.usuarioService.getByUUId(this.id);
-      usuario.subscribe(usuario => {
-        this.usuario = usuario;
-        this.pessoa = usuario.Pessoa;
-        this.usuario.Pessoa = this.pessoa;
-      });
-    } else {
-      this.usuario.Pessoa = this.pessoa;
+      this.usuarioService.getByUUId(this.id).subscribe(retorno => this.usuario = retorno);
     }
   }
 
-
-  cancelar() {
-    this.router.navigate([`/${Global.modulo}`]);
-    //this.router.navigateByUrl(`/${Global.modulo}`);
+  voltar() {
+    this.usuarioService.voltar();
   }
 
   salvar() {
-    this.usuarioService.salvar(this.usuario).subscribe(usuario => this.usuario = usuario);
-    this.router.navigateByUrl(`/${Global.modulo}`);
+    console.log(this.usuario);
+    //this.usuarioService.salvar(this.usuario).subscribe(usuario => this.usuario = usuario);
   }
 
 }

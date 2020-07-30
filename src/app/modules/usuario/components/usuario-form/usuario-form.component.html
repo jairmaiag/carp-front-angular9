@@ -1,12 +1,8 @@
-<div class="container-fluid border">
-  <titulo-tela
-    titulo="{{ tituloComponente }}"
-    (acaoFechar)="cancelar()"
-  ></titulo-tela>
+<tela titulo="{{ titulo }}" (botaoFechar)="voltar()">
   <div class="row">
     <div class="col-sm">
       <form #formUsu="ngForm" (ngSubmit)="salvar()">
-        <div class="row" *ngIf="id != null">
+        <div class="row" *ngIf="usuario.id != null">
           <div class="col-sm">
             <div class="form-group">
               <label for="id">Id:</label>&nbsp;<strong
@@ -45,27 +41,97 @@
           </div>
           <div class="col-sm">
             <div class="form-group">
+              <label for="senha">Confirmação de Senha</label>
+              <input
+                type="password"
+                class="form-control form-control-sm"
+                id="senha"
+                name="senha"
+                [(ngModel)]="usuario.senha"
+                placeholder="***"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
               <label for="nome">Nome</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
                 id="nome"
                 name="nome"
-                [(ngModel)]="usuario.Pessoa.nome"
                 placeholder="Nome"
+                autofocus
+                [(ngModel)]="usuario.Pessoa.nome"
               />
             </div>
           </div>
           <div class="col-sm">
             <div class="form-group">
-              <label for="sobrenome">Sobre Nome</label>
+              <label for="nomeMeio">Nome do meio</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="nomeMeio"
+                name="nomeMeio"
+                [(ngModel)]="usuario.Pessoa.nomeMeio"
+                placeholder="Nome do meio"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="sobrenome">Sobre nome</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
                 id="sobrenome"
                 name="sobrenome"
                 [(ngModel)]="usuario.Pessoa.sobrenome"
-                placeholder="Sobre Nome"
+                placeholder="Sobre nome"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="nascimento">Nascimento</label>
+              <input
+                type="date"
+                class="form-control form-control-sm"
+                id="nascimento"
+                name="nascimento"
+                [(ngModel)]="usuario.Pessoa.nascimento"
+                placeholder="Data de nascimento"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="rg">RG</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="rg"
+                name="rg"
+                [(ngModel)]="usuario.Pessoa.rg"
+                placeholder="Identidade"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="cpf">CPF</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="cpf"
+                name="cpf"
+                [(ngModel)]="usuario.Pessoa.cpf"
+                placeholder="CPF"
               />
             </div>
           </div>
@@ -86,4 +152,4 @@
       </form>
     </div>
   </div>
-</div>
+</tela>
