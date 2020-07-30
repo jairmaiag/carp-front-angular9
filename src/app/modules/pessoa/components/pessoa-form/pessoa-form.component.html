@@ -23,6 +23,7 @@
                 placeholder="Nome"
                 autofocus
                 [(ngModel)]="pessoa.nome"
+                required
               />
             </div>
           </div>
@@ -58,12 +59,15 @@
             <div class="form-group">
               <label for="nascimento">Nascimento</label>
               <input
-                type="date"
+                type="text"
+                placeholder="Choose date"
                 class="form-control form-control-sm"
-                id="nascimento"
                 name="nascimento"
                 [(ngModel)]="pessoa.nascimento"
                 placeholder="Data de nascimento"
+                [bsValue]="pessoa.nascimento"
+                [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+                bsDatepicker
               />
             </div>
           </div>
@@ -71,16 +75,19 @@
             <div class="form-group">
               <label for="sexo">Sexo</label>
               <select
-                type="text"
+                required
                 class="form-control form-control-sm"
                 id="sexo"
                 name="sexo"
                 [(ngModel)]="pessoa.sexo"
                 placeholder="Sexo"
               >
-                <option *ngFor="let sex of sexo" value="{{ sex.id }}">{{
-                  sex.descricao
-                }}</option>
+                <option
+                  *ngFor="let sex of sexo"
+                  value="{{ sex.id }}"
+                  selected
+                  >{{ sex.descricao }}</option
+                >
               </select>
             </div>
           </div>

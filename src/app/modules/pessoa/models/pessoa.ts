@@ -9,4 +9,16 @@ export class Pessoa {
     cpf?: string;
     rg?: string;
     ativo: boolean = true;
+    static getInstance(): Pessoa {
+        let retorno: Pessoa = new Pessoa();
+        retorno.nome = '';
+        retorno.nomeMeio = '';
+        retorno.sobrenome = '';
+        retorno.nascimento = new Date();
+        retorno.sexo = 'F';
+        retorno.cpf = '';
+        retorno.rg = '';
+        retorno.ativo = true;
+        return retorno;
+    }
 }
