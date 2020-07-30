@@ -1,4 +1,4 @@
-import { Pessoa } from './../../../models/pessoa';
+import { Pessoa } from '../../pessoa/models/pessoa';
 
 export class Usuario {
     id?: number;
@@ -8,4 +8,14 @@ export class Usuario {
     ativo?: boolean;
     expira: Date;
     Pessoa: Pessoa;
+
+    static getInstance(): Usuario {
+        let retorno: Usuario = new Usuario();
+        retorno.login = '';
+        retorno.senha = '';
+        retorno.ativo = true;
+        retorno.expira = null;
+        retorno.Pessoa = Pessoa.getInstance();
+        return retorno;
+    }
 }
