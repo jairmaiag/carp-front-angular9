@@ -39,11 +39,8 @@ export class PessoaFormComponent implements OnInit, OnDestroy {
     }
   }
   salvar() {
-    console.log(this.pessoa);
-    /*
     const retorno = this.pessoaService.salvar(this.pessoa);
     this.inscricao$ = retorno.subscribe(p => this.voltar());
-    */
   }
 
   voltar() {

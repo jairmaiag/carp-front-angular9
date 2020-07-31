@@ -21,7 +21,7 @@
           <tbody>
             <tr *ngFor="let entidade of paginacao.rows">
               <td>
-                {{ entidade.id }} {{ entidade.nome }} {{ entidade.nomeMeio }}
+                {{ entidade.nome }} {{ entidade.nomeMeio }}
                 {{ entidade.sobrenome }}
               </td>
               <td>{{ entidade.ativo }}</td>
@@ -116,11 +116,3 @@
     </div>
   </div>
 </tela>
-<div class="col-xs-12">
-  <input
-    type="text"
-    placeholder="Choose date"
-    class="form-control"
-    bsDatepicker
-  />
-</div>

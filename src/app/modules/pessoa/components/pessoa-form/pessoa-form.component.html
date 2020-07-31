@@ -1,7 +1,7 @@
 <tela titulo="{{ titulo }}" (botaoFechar)="voltar()">
   <div class="row">
     <div class="col-sm">
-      <form #formUsu="ngForm" (ngSubmit)="salvar()">
+      <form #formulario="ngForm" (ngSubmit)="salvar()">
         <div class="row" *ngIf="id != null">
           <div class="col-sm">
             <div class="form-group">
@@ -23,8 +23,12 @@
                 placeholder="Nome"
                 autofocus
                 [(ngModel)]="pessoa.nome"
+                #nome="ngModel"
                 required
               />
+              <alert type="danger" *ngIf="!nome.valid && nome.touched">
+                <strong>Atenção!</strong> Campo obrigatório.
+              </alert>
             </div>
           </div>
           <div class="col-sm">
@@ -64,11 +68,16 @@
                 class="form-control form-control-sm"
                 name="nascimento"
                 [(ngModel)]="pessoa.nascimento"
+                #nascimento="ngModel"
                 placeholder="Data de nascimento"
                 [bsValue]="pessoa.nascimento"
                 [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
                 bsDatepicker
+                required
               />
+              <alert type="danger" *ngIf="!nascimento.valid && nascimento.touched">
+                <strong>Atenção!</strong> Campo obrigatório.
+              </alert>
             </div>
           </div>
           <div class="col-sm">
@@ -128,9 +137,8 @@
           />
           <label class="form-check-label" for="ativo">Ativo</label>
         </div>
-        <botao-salvar></botao-salvar>&nbsp;
-        <botao-cancelar></botao-cancelar>&nbsp;
-        <!-- button type="submit" class="btn btn-primary">Salvar</button -->
+        <botao-salvar [desabilitado]="!formulario.valid"></botao-salvar>&nbsp;
+        <botao-cancelar (acao)="voltar()"></botao-cancelar>
       </form>
     </div>
   </div>
