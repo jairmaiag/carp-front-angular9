@@ -24,7 +24,7 @@
                 {{ entidade.nome }} {{ entidade.nomeMeio }}
                 {{ entidade.sobrenome }}
               </td>
-              <td>{{ entidade.ativo }}</td>
+              <td>{{ entidade.ativo | simNao }}</td>
               <td>{{ entidade.nascimento | date: "shortDate" }}</td>
               <td>{{ entidade.sexo }}</td>
               <td>{{ entidade.rg }}</td>
