@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'botao',
   template: `
-     <button type="{{tipo}}" class="btn {{class}}" (click)="clickBotao()">
+     <button type="{{tipo}}" class="btn {{class}}" (click)="clickBotao()" [disabled]="desabilitado">
        <i class="fa {{icone}}" aria-hidden="true"></i> {{rotulo}}
      </button>`,
   styleUrls: ['./botao.component.css']
@@ -19,6 +19,9 @@ export class BotaoComponent implements OnInit {
   @Input()
   class: string = 'btn-primary';
 
+  @Input()
+  desabilitado: boolean = false;
+
   @Output()
   acao = new EventEmitter();
 
@@ -28,6 +31,7 @@ export class BotaoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.desabilitado);
   }
 
   clickBotao() {
