@@ -8,6 +8,7 @@ import localePt from '@angular/common/locales/pt';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AlertModule } from 'ngx-bootstrap/alert';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
@@ -21,7 +22,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AcessoComponent } from './components/acesso/acesso.component';
 
 registerLocaleData(localePt);
-defineLocale('pt-BR', deLocale);
+defineLocale('pt-br', deLocale);
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ defineLocale('pt-BR', deLocale);
     BrowserAnimationsModule,
     NgbModule,
     ModalModule.forRoot(),
+    AlertModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     AppRoutingModule,
