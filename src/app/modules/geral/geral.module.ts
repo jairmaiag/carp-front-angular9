@@ -21,6 +21,7 @@ import { BotaoNaoComponent } from './components/botao-nao/botao-nao.component';
 import { BotaoExcluirComponent } from './components/botao-excluir/botao-excluir.component';
 import { BotoesAcaoComponent } from './components/botoes-acao/botoes-acao.component';
 import { ModalSimnaoComponent } from './components/modal-simnao/modal-simnao.component';
+import { SimNaoPipe } from './components/sim-nao.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ModalSimnaoComponent } from './components/modal-simnao/modal-simnao.com
     BotaoExcluirComponent,
     TelaComponent,
     BotoesAcaoComponent,
-    ModalSimnaoComponent
+    ModalSimnaoComponent,
+    SimNaoPipe
   ],
   imports: [
     CommonModule,
@@ -61,7 +63,8 @@ import { ModalSimnaoComponent } from './components/modal-simnao/modal-simnao.com
     BotaoExcluirComponent,
     BotoesAcaoComponent,
     TelaComponent,
-    ModalSimnaoComponent
+    ModalSimnaoComponent,
+    SimNaoPipe
   ],
   providers: [Constantes]
 })
