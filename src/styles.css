@@ -2,6 +2,9 @@
 @import "~ngx-bootstrap/datepicker/bs-datepicker.css";
 @import "theme.css";
 
+.ng-invalid.ng-touched:not(form) {
+  border: 1px solid red;
+}
 .card {
   box-shadow: 0 0.3em 1em #000;
 }
