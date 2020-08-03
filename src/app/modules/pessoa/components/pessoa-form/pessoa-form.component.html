@@ -75,7 +75,10 @@
                 bsDatepicker
                 required
               />
-              <alert type="danger" *ngIf="!nascimento.valid && nascimento.touched">
+              <alert
+                type="danger"
+                *ngIf="!nascimento.valid && nascimento.touched"
+              >
                 <strong>Atenção!</strong> Campo obrigatório.
               </alert>
             </div>
@@ -123,6 +126,8 @@
                 name="cpf"
                 [(ngModel)]="pessoa.cpf"
                 placeholder="999.999.999-99"
+                mask="000.000.000-00"
+                maxlength="11"
               />
             </div>
           </div>
