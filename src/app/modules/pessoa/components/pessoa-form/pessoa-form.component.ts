@@ -22,7 +22,6 @@ export class PessoaFormComponent implements OnInit, OnDestroy {
   inscricao$: Subscription;
 
   constructor(private pessoaService: PessoaService, private activeRouter: ActivatedRoute, private localeService: BsLocaleService) {
-    this.localeService.use('pt-br');
     this.sexo = this.pessoaService.getListaSexo();
   }
 
@@ -30,7 +29,10 @@ export class PessoaFormComponent implements OnInit, OnDestroy {
     this.id = this.activeRouter.snapshot.paramMap.get('uuid');
     if (this.id != null) {
       this.titulo = `${PessoaService.tituloEdicao}`;
-      this.pessoaService.getBUUId(this.id).subscribe(retorno => this.pessoa = retorno);
+      this.pessoaService.getBUUId(this.id).subscribe(retorno => {
+        this.pessoa = retorno;
+        this.pessoa.nascimento = new Date(retorno.nascimento);
+      });
     }
   }
   ngOnDestroy(): void {
