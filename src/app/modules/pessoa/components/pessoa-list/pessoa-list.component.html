@@ -2,27 +2,18 @@
   <botao-novo (acao)="novo()"></botao-novo>
   <div class="row">
     <div class="col-sm">
-      <div class="table-responsive-sm">
-        <table
-          class="table table-sm table-striped table-hover"
-          *ngIf="paginacao?.rows; else aviso"
-        >
+      <div class="table-responsive-sm" #tabela>
+        <table class="table table-sm table-striped table-hover" *ngIf="paginacao?.rows; else aviso" id="tabelaDados">
+          <caption>Lista de usuários</caption>
           <thead>
             <tr>
-              <th scope="col">Nome</th>
-              <th scope="col">Ativo</th>
-              <th scope="col">Nascimento</th>
-              <th scope="col">Sexo</th>
-              <th scope="col">RG</th>
-              <th scope="col">CPF</th>
-              <th scope="col" style="width: 180px;">Ação</th>
+              <th scope="col" *ngFor="let coluna of tituloColuna">{{coluna}}</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let entidade of paginacao.rows">
               <td>
-                {{ entidade.nome }} {{ entidade.nomeMeio }}
-                {{ entidade.sobrenome }}
+                {{ entidade.nome }} {{ entidade.nomeMeio }} {{ entidade.sobrenome }}
               </td>
               <td>{{ entidade.ativo | simNao }}</td>
               <td>{{ entidade.nascimento | date: "shortDate" }}</td>
@@ -41,35 +32,35 @@
           <tfoot>
             <tr>
               <td>
-                <nav aria-label="Navegação de página exemplo">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Anterior">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Anterior</span>
-                      </a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Próximo">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Próximo</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
               </td>
             </tr>
           </tfoot>
         </table>
+        <nav aria-label="Navegação de página exemplo">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Anterior">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Anterior</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Próximo">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Próximo</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <ng-template #aviso>
         <div *ngIf="erro; else carregandoDados">

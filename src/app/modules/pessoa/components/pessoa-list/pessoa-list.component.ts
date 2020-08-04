@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { Paginacao } from './../../../../models/paginacao';
@@ -16,10 +16,18 @@ export class PessoaListComponent implements OnInit, OnDestroy {
   inscricao$: Subscription;
   lista: Pessoa[];
   erro: any = null;
+  tituloColuna: Array<string>;
 
-  constructor(private pessoaService: PessoaService) { }
+  @ViewChild('tabela')
+  tabelaDom: ElementRef;
+
+  constructor(private pessoaService: PessoaService) {
+    let tab = document.getElementById('tabelaDados');
+    console.log(tab);
+  }
 
   ngOnInit(): void {
+    this.tituloColuna = this.pessoaService.getListaCabecalhoTabela();
     this.listar();
   }
 
@@ -33,6 +41,7 @@ export class PessoaListComponent implements OnInit, OnDestroy {
     const paginacao = this.pessoaService.getList();
     this.inscricao$ = paginacao.subscribe(retorno => {
       this.paginacao = retorno;
+      console.log(retorno);
       this.lista = retorno.rows;
     }, erro => {
       this.erro = erro;
