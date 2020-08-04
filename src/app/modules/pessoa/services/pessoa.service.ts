@@ -76,4 +76,15 @@ export class PessoaService {
   getListaSexo() {
     return Sexo.getInstanceList();
   }
+  getListaCabecalhoTabela(): string[] {
+    let retorno = Array<string>();
+    retorno.push("Nome");
+    retorno.push("Ativo");
+    retorno.push("Nascimento");
+    retorno.push("Sexo");
+    retorno.push("RG");
+    retorno.push("CPF");
+    retorno.push("Ação");
+    return retorno;
+  }
 }
