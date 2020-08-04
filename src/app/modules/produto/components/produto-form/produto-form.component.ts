@@ -9,9 +9,9 @@ import { Global } from './../../global';
 })
 export class ProdutoFormComponent implements OnInit {
   id: any;
-  tituloForm: String;
+  tituloForm: string;
   global: Global;
-  
+
   constructor(global: Global, private activeRouter: ActivatedRoute) {
     this.global = global;
     this.tituloForm = `${this.global.inclusao}${this.global.modulo}`;

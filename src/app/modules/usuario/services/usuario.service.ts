@@ -15,12 +15,12 @@ import { Usuario } from './../models/usuario';
 })
 export class UsuarioService {
 
-  static modulo: string = 'usuario';
-  static titulo: string = 'Usuário';
-  static tituloListagem: string = `${Constantes.listagem}${UsuarioService.titulo}`;
-  static tituloInclusao: string = `${Constantes.inclusao}${UsuarioService.titulo}`;
-  static tituloEdicao: string = `${Constantes.alteracao}${UsuarioService.titulo}`;
-  static tituloDetalhe: string = `${Constantes.detalhe}${UsuarioService.titulo}`;
+  static modulo = 'usuario';
+  static titulo = 'Usuário';
+  static tituloListagem = `${Constantes.listagem}${UsuarioService.titulo}`;
+  static tituloInclusao = `${Constantes.inclusao}${UsuarioService.titulo}`;
+  static tituloEdicao = `${Constantes.alteracao}${UsuarioService.titulo}`;
+  static tituloDetalhe = `${Constantes.detalhe}${UsuarioService.titulo}`;
 
   private readonly API = `${environment.API}${UsuarioService.modulo}`;
 

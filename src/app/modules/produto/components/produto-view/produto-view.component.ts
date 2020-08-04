@@ -9,7 +9,7 @@ import { Global } from './../../global';
 })
 export class ProdutoViewComponent implements OnInit {
   id: any;
-  tituloForm: String;
+  tituloForm: string;
   global: Global;
   constructor(global: Global, private activeRouter: ActivatedRoute) {
     this.global = global;

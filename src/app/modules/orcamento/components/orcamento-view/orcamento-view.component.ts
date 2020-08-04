@@ -9,7 +9,7 @@ import { OrcamentoService } from '../../services/orcamento.service';
 })
 export class OrcamentoViewComponent implements OnInit {
 
-  titulo: String = OrcamentoService.tituloDetalhe;
+  titulo: string = OrcamentoService.tituloDetalhe;
 
   constructor(private servico: OrcamentoService) { }
 

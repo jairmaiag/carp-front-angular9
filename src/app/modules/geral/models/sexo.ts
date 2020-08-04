@@ -1,7 +1,7 @@
 export class Sexo {
-    constructor(_id: string, _descricao: string) {
-        this.id = _id;
-        this.descricao = _descricao;
+    constructor(id: string, descricao: string) {
+        this.id = id;
+        this.descricao = descricao;
     }
     id: string;
     descricao: string;
@@ -11,7 +11,7 @@ export class Sexo {
     }
 
     static getInstanceList(): Sexo[] {
-        let retorno: Sexo[] = new Array<Sexo>();
+        const retorno: Sexo[] = new Array<Sexo>();
         retorno.push(new Sexo('M', 'Masculino'));
         retorno.push(new Sexo('F', 'Feminino'));
         return retorno;

@@ -8,9 +8,9 @@ export class Pessoa {
     sexo?: string;
     cpf?: string;
     rg?: string;
-    ativo: boolean = true;
+    ativo = true;
     static getInstance(): Pessoa {
-        let retorno: Pessoa = new Pessoa();
+        const retorno: Pessoa = new Pessoa();
         retorno.nome = '';
         retorno.nomeMeio = '';
         retorno.sobrenome = '';

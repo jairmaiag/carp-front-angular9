@@ -10,7 +10,7 @@ export class Usuario {
     Pessoa: Pessoa;
 
     static getInstance(): Usuario {
-        let retorno: Usuario = new Usuario();
+        const retorno: Usuario = new Usuario();
         retorno.login = '';
         retorno.senha = '';
         retorno.ativo = true;

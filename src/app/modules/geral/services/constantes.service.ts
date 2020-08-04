@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Constantes {
-  static inclusao: String = 'Inclusão de ';
-  static alteracao: String = 'Edição de ';
-  static detalhe: String = 'Detalhe de ';
-  static listagem: String = 'Listagem de ';
+  static inclusao = 'Inclusão de ';
+  static alteracao = 'Edição de ';
+  static detalhe = 'Detalhe de ';
+  static listagem = 'Listagem de ';
   constructor() { }
 }

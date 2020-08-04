@@ -10,7 +10,7 @@ export class ModalSimnaoComponent implements OnInit {
   modalRef: BsModalRef;
 
   @Input()
-  pergunta: string = 'Digite sua pergunta para sim ou não ?';
+  pergunta = 'Digite sua pergunta para sim ou não ?';
 
   @Output()
   sim = new EventEmitter();
@@ -19,7 +19,7 @@ export class ModalSimnaoComponent implements OnInit {
   nao = new EventEmitter();
 
   @Input()
-  icone: string = 'fa-question';
+  icone = 'fa-question';
 
   constructor(private modalService: BsModalService) { }
 

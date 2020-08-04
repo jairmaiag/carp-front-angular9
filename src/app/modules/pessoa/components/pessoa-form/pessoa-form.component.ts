@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
-import { PessoaService } from '../../services/pessoa.service'
+import { PessoaService } from '../../services/pessoa.service';
 import { Pessoa } from '../../models/pessoa';
 import { Sexo } from '../../../geral/models/sexo';
 
@@ -15,7 +15,7 @@ import { Sexo } from '../../../geral/models/sexo';
 })
 export class PessoaFormComponent implements OnInit, OnDestroy {
 
-  titulo: String = PessoaService.tituloInclusao;
+  titulo: string = PessoaService.tituloInclusao;
   id: any;
   pessoa: Pessoa = Pessoa.getInstance();
   sexo: Sexo[];

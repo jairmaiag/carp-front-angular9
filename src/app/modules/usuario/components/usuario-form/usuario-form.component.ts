@@ -11,7 +11,7 @@ import { UsuarioService } from '../../services/usuario.service';
   styleUrls: ['./usuario-form.component.css']
 })
 export class UsuarioFormComponent implements OnInit, OnDestroy {
-  titulo: String = UsuarioService.tituloInclusao;
+  titulo: string = UsuarioService.tituloInclusao;
   id: any;
   usuario: Usuario = Usuario.getInstance();
   inscricao$: Subscription;
@@ -43,7 +43,7 @@ export class UsuarioFormComponent implements OnInit, OnDestroy {
 
   salvar() {
     console.log(this.usuario);
-    //this.usuarioService.salvar(this.usuario).subscribe(usuario => this.usuario = usuario);
+    // this.usuarioService.salvar(this.usuario).subscribe(usuario => this.usuario = usuario);
   }
 
 }

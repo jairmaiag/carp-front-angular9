@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { Paginacao } from './../../../../models/paginacao';
 import { Pessoa } from '../../models/pessoa';
-import { PessoaService } from '../../services/pessoa.service'
+import { PessoaService } from '../../services/pessoa.service';
 @Component({
   selector: 'app-pessoa-list',
   templateUrl: './pessoa-list.component.html',
@@ -11,7 +11,7 @@ import { PessoaService } from '../../services/pessoa.service'
 })
 export class PessoaListComponent implements OnInit, OnDestroy {
 
-  titulo: String = PessoaService.tituloListagem;
+  titulo: string = PessoaService.tituloListagem;
   paginacao: Paginacao;
   inscricao$: Subscription;
   lista: Pessoa[];
@@ -22,7 +22,7 @@ export class PessoaListComponent implements OnInit, OnDestroy {
   tabelaDom: ElementRef;
 
   constructor(private pessoaService: PessoaService) {
-    let tab = document.getElementById('tabelaDados');
+    const tab = document.getElementById('tabelaDados');
     console.log(tab);
   }
 

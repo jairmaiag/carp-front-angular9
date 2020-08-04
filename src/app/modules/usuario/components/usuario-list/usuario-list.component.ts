@@ -14,7 +14,7 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class UsuarioListComponent implements OnInit, OnDestroy {
 
-  titulo: String = UsuarioService.tituloListagem;
+  titulo: string = UsuarioService.tituloListagem;
   paginacao: Paginacao;
   inscricao$: Subscription;
   lista: Usuario[];
@@ -71,6 +71,6 @@ export class UsuarioListComponent implements OnInit, OnDestroy {
   recarregar() {
     this.erro = null;
     this.lista = [];
-    this.listar()
+    this.listar();
   }
 }

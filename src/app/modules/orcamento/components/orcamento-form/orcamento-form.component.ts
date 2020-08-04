@@ -10,10 +10,10 @@ import { OrcamentoService } from '../../services/orcamento.service';
 })
 export class OrcamentoFormComponent implements OnInit {
 
-  titulo: String = OrcamentoService.tituloInclusao;
+  titulo: string = OrcamentoService.tituloInclusao;
 
   constructor(private servico: OrcamentoService, private activeRouter: ActivatedRoute) {
-    let uuid = this.activeRouter.snapshot.paramMap.get('uuid')
+    const uuid = this.activeRouter.snapshot.paramMap.get('uuid');
     if (uuid) {
       this.titulo = OrcamentoService.tituloEdicao;
       this.getByUUId(uuid);

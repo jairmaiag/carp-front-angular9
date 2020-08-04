@@ -7,7 +7,7 @@ import { Global } from './../../global';
   styleUrls: ['./produto-listagem.component.css']
 })
 export class ProdutoListagemComponent implements OnInit {
-  tituloForm: String;
+  tituloForm: string;
   global: Global;
 
   constructor(global: Global) {

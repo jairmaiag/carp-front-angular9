@@ -8,12 +8,12 @@ import { Constantes } from '../../../modules/geral/services/constantes.service';
 })
 export class OrcamentoService {
 
-  static modulo: string = 'orcamento';
-  static titulo: string = 'Orçamento';
-  static tituloListagem: string = `${Constantes.listagem}${OrcamentoService.titulo}`;
-  static tituloInclusao: string = `${Constantes.inclusao}${OrcamentoService.titulo}`;
-  static tituloEdicao: string = `${Constantes.alteracao}${OrcamentoService.titulo}`;
-  static tituloDetalhe: string = `${Constantes.detalhe}${OrcamentoService.titulo}`;
+  static modulo = 'orcamento';
+  static titulo = 'Orçamento';
+  static tituloListagem = `${Constantes.listagem}${OrcamentoService.titulo}`;
+  static tituloInclusao = `${Constantes.inclusao}${OrcamentoService.titulo}`;
+  static tituloEdicao = `${Constantes.alteracao}${OrcamentoService.titulo}`;
+  static tituloDetalhe = `${Constantes.detalhe}${OrcamentoService.titulo}`;
 
   constructor(private router: Router) {
   }

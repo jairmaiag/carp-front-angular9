@@ -13,12 +13,12 @@ import { Sexo } from '../../geral/models/sexo';
 })
 export class PessoaService {
 
-  static modulo: string = 'pessoa';
-  static titulo: string = 'Pessoa';
-  static tituloListagem: string = `${Constantes.listagem}${PessoaService.titulo}`;
-  static tituloInclusao: string = `${Constantes.inclusao}${PessoaService.titulo}`;
-  static tituloEdicao: string = `${Constantes.alteracao}${PessoaService.titulo}`;
-  static tituloDetalhe: string = `${Constantes.detalhe}${PessoaService.titulo}`;
+  static modulo = 'pessoa';
+  static titulo = 'Pessoa';
+  static tituloListagem = `${Constantes.listagem}${PessoaService.titulo}`;
+  static tituloInclusao = `${Constantes.inclusao}${PessoaService.titulo}`;
+  static tituloEdicao = `${Constantes.alteracao}${PessoaService.titulo}`;
+  static tituloDetalhe = `${Constantes.detalhe}${PessoaService.titulo}`;
 
   private readonly API = `${environment.API}${PessoaService.modulo}`;
 
@@ -77,14 +77,14 @@ export class PessoaService {
     return Sexo.getInstanceList();
   }
   getListaCabecalhoTabela(): string[] {
-    let retorno = Array<string>();
-    retorno.push("Nome");
-    retorno.push("Ativo");
-    retorno.push("Nascimento");
-    retorno.push("Sexo");
-    retorno.push("RG");
-    retorno.push("CPF");
-    retorno.push("Ação");
+    const retorno = Array<string>();
+    retorno.push('Nome');
+    retorno.push('Ativo');
+    retorno.push('Nascimento');
+    retorno.push('Sexo');
+    retorno.push('RG');
+    retorno.push('CPF');
+    retorno.push('Ação');
     return retorno;
   }
 }

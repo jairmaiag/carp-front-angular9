@@ -10,7 +10,7 @@ import { OrcamentoService } from '../../services/orcamento.service';
 })
 export class OrcamentoListComponent implements OnInit {
 
-  titulo: String = OrcamentoService.tituloListagem;
+  titulo: string = OrcamentoService.tituloListagem;
 
   constructor(private servico: OrcamentoService) { }
 
