@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { BotaoComponent } from './../botao/botao.component';
 
 @Component({
-  selector: 'botao-excluir',
+  selector: 'app-botao-excluir',
   templateUrl: './botao-excluir.component.html',
   styleUrls: ['./botao-excluir.component.css']
 })

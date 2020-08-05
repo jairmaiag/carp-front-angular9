@@ -1,4 +1,4 @@
-<tela titulo="{{ titulo }}" (botaoFechar)="voltar()">
+<app-tela titulo="{{ titulo }}" (botaoFechar)="voltar()">
   <div class="row">
     <div class="col-sm">
       <form #formulario="ngForm" (ngSubmit)="salvar()">
@@ -142,9 +142,10 @@
           />
           <label class="form-check-label" for="ativo">Ativo</label>
         </div>
-        <botao-salvar [desabilitado]="!formulario.valid"></botao-salvar>&nbsp;
-        <botao-cancelar (acao)="voltar()"></botao-cancelar>
+        <app-botao-salvar [desabilitado]="!formulario.valid"></app-botao-salvar
+        >&nbsp;
+        <app-botao-cancelar (acao)="voltar()"></app-botao-cancelar>
       </form>
     </div>
   </div>
-</tela>
+</app-tela>

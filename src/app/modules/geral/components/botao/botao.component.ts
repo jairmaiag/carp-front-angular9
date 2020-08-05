@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'botao',
+  selector: 'app-botao',
   template: `
      <button type="{{tipo}}" class="btn {{class}}" (click)="clickBotao()" [disabled]="desabilitado">
        <i class="fa {{icone}}" aria-hidden="true"></i> {{rotulo}}

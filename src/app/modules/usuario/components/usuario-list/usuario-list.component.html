@@ -1,5 +1,5 @@
-<tela titulo="{{ titulo }}" (botaoFechar)="fechar()">
-  <botao-novo (acao)="novo()"></botao-novo>
+<app-tela titulo="{{ titulo }}" (botaoFechar)="fechar()">
+  <app-botao-novo (acao)="novo()"></app-botao-novo>
   <div class="row">
     <div class="col-sm">
       <div class="table-responsive-sm">
@@ -19,7 +19,7 @@
               <td scope="row">{{ usuario.login }}</td>
               <td>{{ usuario["Pessoa.nome"] }}</td>
               <td>
-                <botoes-acao (acaoEdicao)="editar(usuario.UUId)" (acaoVisualizacao)="detalhar(usuario.UUId)" (acaoExclusao)="excluir(usuario.id)"></botoes-acao>
+                <app-botoes-acao (acaoEdicao)="editar(usuario.UUId)" (acaoVisualizacao)="detalhar(usuario.UUId)" (acaoExclusao)="excluir(usuario.id)"></app-botoes-acao>
               </td>
             </tr>
           </tbody>
@@ -100,4 +100,4 @@
       </ng-template>
     </div>
   </div>
-</tela>
+</app-tela>

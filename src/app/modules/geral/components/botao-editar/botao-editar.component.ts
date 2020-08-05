@@ -3,8 +3,8 @@ import { BotaoComponent } from './../botao/botao.component';
 
 
 @Component({
-  selector: 'botao-editar',
-  template: '<botao (acao)="clickBotao()" icone="fa-pencil"></botao>',
+  selector: 'app-botao-editar',
+  template: '<app-botao (acao)="clickBotao()" icone="fa-pencil"></app-botao>',
   styleUrls: ['./botao-editar.component.css']
 })
 export class BotaoEditarComponent extends BotaoComponent { }

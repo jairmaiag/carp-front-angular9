@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
 @Component({
-  selector: 'tela',
+  selector: 'app-tela',
   templateUrl: './tela.component.html',
   styleUrls: ['./tela.component.css']
 })

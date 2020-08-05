@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { BotaoComponent } from './../botao/botao.component';
 
 @Component({
-  selector: 'botao-fechar',
-  template: '<botao (acao)="clickBotao()" icone="fa-times"></botao>',
+  selector: 'app-botao-fechar',
+  template: '<app-botao (acao)="clickBotao()" icone="fa-times"></app-botao>',
   styleUrls: ['./botao-fechar.component.css']
 })
 

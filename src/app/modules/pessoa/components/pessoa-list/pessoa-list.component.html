@@ -1,19 +1,28 @@
-<tela titulo="{{ titulo }}" (botaoFechar)="fechar()">
-  <botao-novo (acao)="novo()"></botao-novo>
+<app-tela titulo="{{ titulo }}" (botaoFechar)="fechar()">
+  <app-botao-novo (acao)="novo()"></app-botao-novo>
   <div class="row">
     <div class="col-sm">
       <div class="table-responsive-sm" #tabela>
-        <table class="table table-sm table-striped table-hover" *ngIf="paginacao?.rows; else aviso" id="tabelaDados">
-          <caption>Lista de usuários</caption>
+        <table
+          class="table table-sm table-striped table-hover"
+          *ngIf="paginacao?.rows; else aviso"
+          id="tabelaDados"
+        >
+          <caption>
+            Lista de usuários
+          </caption>
           <thead>
             <tr>
-              <th scope="col" *ngFor="let coluna of tituloColuna">{{coluna}}</th>
+              <th scope="col" *ngFor="let coluna of tituloColuna">
+                {{ coluna }}
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let entidade of paginacao.rows">
               <td>
-                {{ entidade.nome }} {{ entidade.nomeMeio }} {{ entidade.sobrenome }}
+                {{ entidade.nome }} {{ entidade.nomeMeio }}
+                {{ entidade.sobrenome }}
               </td>
               <td>{{ entidade.ativo | simNao }}</td>
               <td>{{ entidade.nascimento | date: "shortDate" }}</td>
@@ -21,18 +30,17 @@
               <td>{{ entidade.rg }}</td>
               <td>{{ entidade.cpf }}</td>
               <td>
-                <botoes-acao
+                <app-botoes-acao
                   (acaoEdicao)="editar(entidade.UUId)"
                   (acaoVisualizacao)="detalhar(entidade.UUId)"
                   (acaoExclusao)="excluir(entidade.id)"
-                ></botoes-acao>
+                ></app-botoes-acao>
               </td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <td>
-              </td>
+              <td></td>
             </tr>
           </tfoot>
         </table>
@@ -106,4 +114,4 @@
       </ng-template>
     </div>
   </div>
-</tela>
+</app-tela>

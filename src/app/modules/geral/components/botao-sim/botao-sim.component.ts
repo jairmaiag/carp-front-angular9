@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { BotaoComponent } from './../botao/botao.component';
 
 @Component({
-  selector: 'botao-sim',
-  template: '<botao (acao)="clickBotao()" icone="fa-check" class="{{ class }}" rotulo="Sim"></botao>',
+  selector: 'app-botao-sim',
+  template: '<app-botao (acao)="clickBotao()" icone="fa-check" class="{{ class }}" rotulo="Sim"></app-botao>',
   styleUrls: ['./botao-sim.component.css']
 })
 export class BotaoSimComponent extends BotaoComponent {
   @Input()
-  class: string = 'btn-primary';
+  class = 'btn-primary';
 }

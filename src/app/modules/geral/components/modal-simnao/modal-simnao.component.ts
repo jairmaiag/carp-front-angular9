@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef, Input, Output, EventEmitter } from '@an
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'modal-sim-nao',
+  selector: 'app-modal-sim-nao',
   templateUrl: './modal-simnao.component.html',
   styleUrls: ['./modal-simnao.component.css']
 })

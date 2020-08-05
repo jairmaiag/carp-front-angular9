@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'botoes-acao',
+  selector: 'app-botoes-acao',
   templateUrl: './botoes-acao.component.html',
   styleUrls: ['./botoes-acao.component.css']
 })

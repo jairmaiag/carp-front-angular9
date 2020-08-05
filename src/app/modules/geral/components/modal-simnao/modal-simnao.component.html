@@ -1,8 +1,8 @@
-<botao (acao)="openModal(template)" icone="{{ icone }}"></botao>
+<app-botao (acao)="openModal(template)" icone="{{ icone }}"></app-botao>
 <ng-template #template>
   <div class="modal-body text-center">
     <p>{{ pergunta }}</p>
-    <botao-sim class="btn-default" (acao)="simClick()"></botao-sim>
-    <botao-nao (acao)="naoClick()"></botao-nao>
+    <app-botao-sim class="btn-default" (acao)="simClick()"></app-botao-sim>
+    <app-botao-nao (acao)="naoClick()"></app-botao-nao>
   </div>
 </ng-template>

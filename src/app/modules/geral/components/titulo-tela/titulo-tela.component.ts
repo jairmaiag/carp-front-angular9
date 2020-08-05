@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'titulo-tela',
+  selector: 'app-titulo-tela',
   templateUrl: './titulo-tela.component.html',
   styleUrls: ['./titulo-tela.component.css']
 })

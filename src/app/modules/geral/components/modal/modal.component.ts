@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'modal-default',
+  selector: 'app-modal-default',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
