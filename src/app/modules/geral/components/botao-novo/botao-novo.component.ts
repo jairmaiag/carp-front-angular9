@@ -3,11 +3,8 @@ import { BotaoComponent } from './../botao/botao.component';
 
 @Component({
   selector: 'botao-novo',
-  template: '<botao (acao)="clickBotao()" icone="{{icone}}" rotulo="Incluir"></botao>',
+  template: '<botao (acao)="clickBotao()" icone="fa-file-o" rotulo="Incluir"></botao>',
   styleUrls: ['./botao-novo.component.css']
 })
 
-export class BotaoNovoComponent extends BotaoComponent {
-  @Input()
-  icone: string = 'fa-file-o';
-}
+export class BotaoNovoComponent extends BotaoComponent { }

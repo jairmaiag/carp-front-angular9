@@ -26,7 +26,7 @@ export class BotoesAcaoComponent implements OnInit {
     this.acaoEdicao.emit();
   }
   clickVisaulizacao() {
-    this.acaoVisualizacao.emit()
+    this.acaoVisualizacao.emit();
   }
   clickExclusao() {
     return this.acaoExclusao.emit();

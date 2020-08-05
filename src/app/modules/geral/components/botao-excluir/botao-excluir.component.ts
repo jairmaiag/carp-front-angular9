@@ -9,13 +9,13 @@ import { BotaoComponent } from './../botao/botao.component';
 export class BotaoExcluirComponent extends BotaoComponent {
 
   @Input()
-  icone: string = 'fa-trash';
+  icone = 'fa-trash';
 
   @Output()
   acao = new EventEmitter();
 
   @Input()
-  class: string = 'btn-primary';
+  class = 'btn-primary';
 
   clickBotao() {
     this.acao.emit();

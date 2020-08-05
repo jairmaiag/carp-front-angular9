@@ -11,22 +11,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class BotaoComponent implements OnInit {
 
   @Input()
-  icone: string = 'fa-question';
+  icone = 'fa-question';
 
   @Input()
-  rotulo: string = '';
+  rotulo = '';
 
   @Input()
-  class: string = 'btn-primary';
+  class = 'btn-primary';
 
   @Input()
-  desabilitado: boolean = false;
+  desabilitado = false;
 
   @Output()
   acao = new EventEmitter();
 
   @Input()
-  tipo: string = 'button';
+  tipo = 'button';
 
   constructor() { }
 
