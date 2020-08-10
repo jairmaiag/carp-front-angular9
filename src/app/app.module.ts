@@ -17,7 +17,7 @@ import { deLocale } from 'ngx-bootstrap/locale';
 import { AppRoutingModule } from './app-routing.module';
 import { GeralModule } from './modules/geral/geral.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent, NgbdSortableHeader } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AcessoComponent } from './components/acesso/acesso.component';
 
@@ -28,7 +28,8 @@ defineLocale('pt-br', deLocale);
     AppComponent,
     HomeComponent,
     MenuComponent,
-    AcessoComponent
+    AcessoComponent,
+    NgbdSortableHeader
   ],
   imports: [
     BrowserModule,
