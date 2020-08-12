@@ -1,9 +1,11 @@
-import { Component, ViewChild, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChildren, QueryList, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { Paginacao } from './../../../../models/paginacao';
 import { Pessoa } from '../../models/pessoa';
 import { PessoaService } from '../../services/pessoa.service';
+import { CabecalhoOrdenacaoDirective } from './../../../geral/directives/cabecalho-ordenacao.directive';
+import { EventoOrdenacao } from './../../../geral/directives/eventoOrdenacao';
 @Component({
   selector: 'app-pessoa-list',
   templateUrl: './pessoa-list.component.html',
@@ -15,16 +17,13 @@ export class PessoaListComponent implements OnInit, OnDestroy {
   paginacao: Paginacao;
   inscricao$: Subscription;
   lista: Pessoa[];
+  listaTemp: Pessoa[];
   erro: any = null;
   tituloColuna: Array<string>;
 
-  @ViewChild('tabela')
-  tabelaDom: ElementRef;
+  @ViewChildren(CabecalhoOrdenacaoDirective) cabecalhos: QueryList<CabecalhoOrdenacaoDirective>;
 
-  constructor(private pessoaService: PessoaService) {
-    const tab = document.getElementById('tabelaDados');
-    console.log(tab);
-  }
+  constructor(private pessoaService: PessoaService) { }
 
   ngOnInit(): void {
     this.tituloColuna = this.pessoaService.getListaCabecalhoTabela();
@@ -37,12 +36,30 @@ export class PessoaListComponent implements OnInit, OnDestroy {
     }
   }
 
+  onOrdem({ coluna, direcao }: EventoOrdenacao) {
+
+    this.cabecalhos.forEach(tituloColuna => {
+      if (tituloColuna.coluna !== coluna) {
+        tituloColuna.direcao = '';
+      }
+    });
+
+    if (direcao === '' || coluna === '') {
+      this.lista = this.listaTemp;
+    } else {
+      this.lista.sort((a, b) => {
+        const res = CabecalhoOrdenacaoDirective.comparar(a[coluna], b[coluna]);
+        return direcao === 'asc' ? res : -res;
+      });
+    }
+  }
+
   listar() {
     const paginacao = this.pessoaService.getList();
     this.inscricao$ = paginacao.subscribe(retorno => {
       this.paginacao = retorno;
-      console.log(retorno);
       this.lista = retorno.rows;
+      this.listaTemp = retorno.rows;
     }, erro => {
       this.erro = erro;
     });

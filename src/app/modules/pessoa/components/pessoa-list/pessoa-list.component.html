@@ -13,9 +13,28 @@
           </caption>
           <thead>
             <tr>
-              <th scope="col" *ngFor="let coluna of tituloColuna">
-                {{ coluna }}
+              <!--
+
+                <th scope="col" *ngFor="let coluna of tituloColuna">
+                  {{ coluna }}
+                </th>
+              -->
+              <th
+                scope="col"
+                scope="col"
+                coluna="nome"
+                (ordecacao)="onOrdem($event)"
+              >
+                Nome
               </th>
+              <th scope="col" coluna="ativo" (ordecacao)="onOrdem($event)"></th>
+              <th scope="col" coluna="nascimento" (ordecacao)="onOrdem($event)">Nascimento</th>
+              <th scope="col" coluna="sexo" (ordecacao)="onOrdem($event)">
+                Sexo
+              </th>
+              <th scope="col" coluna="rg" (ordecacao)="onOrdem($event)">RG</th>
+              <th scope="col"coluna="cpf" (ordecacao)="onOrdem($event)">CPF</th>
+              <th scope="col">Ação</th>
             </tr>
           </thead>
           <tbody>
