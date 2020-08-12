@@ -22,6 +22,7 @@ import { BotaoExcluirComponent } from './components/botao-excluir/botao-excluir.
 import { BotoesAcaoComponent } from './components/botoes-acao/botoes-acao.component';
 import { ModalSimnaoComponent } from './components/modal-simnao/modal-simnao.component';
 import { SimNaoPipe } from './components/sim-nao.pipe';
+import { CabecalhoOrdenacaoDirective } from './directives/cabecalho-ordenacao.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SimNaoPipe } from './components/sim-nao.pipe';
     TelaComponent,
     BotoesAcaoComponent,
     ModalSimnaoComponent,
-    SimNaoPipe
+    SimNaoPipe,
+    CabecalhoOrdenacaoDirective
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,8 @@ import { SimNaoPipe } from './components/sim-nao.pipe';
     BotoesAcaoComponent,
     TelaComponent,
     ModalSimnaoComponent,
-    SimNaoPipe
+    SimNaoPipe,
+    CabecalhoOrdenacaoDirective
   ],
   providers: [Constantes]
 })
