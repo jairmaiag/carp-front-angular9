@@ -1,4 +1,7 @@
+import { ColunaOrdenada } from './../../modules/geral/directives/colunaOrdenada';
 import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren, OnInit } from '@angular/core';
+import { EventoOrdenacao } from '../../modules/geral/directives/eventoOrdenacao';
+import { CabecalhoOrdenacaoDirective } from './../../modules/geral/directives/cabecalho-ordenacao.directive';
 
 interface Country {
   id: number;
@@ -50,6 +53,7 @@ export interface SortEvent {
   column: SortColumn;
   direction: SortDirection;
 }
+/* Cria uma diretiva aplicada somente nos elementos th com a directivia sortable */
 @Directive({
   selector: 'th[sortable]',
   host: {
@@ -78,17 +82,34 @@ export class HomeComponent implements OnInit {
   countries = COUNTRIES;
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
+  @ViewChildren(CabecalhoOrdenacaoDirective) cabecalhos: QueryList<CabecalhoOrdenacaoDirective>;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
+  onOrdem({ coluna, direcao }: EventoOrdenacao) {
+    this.cabecalhos.forEach(tituloColuna => {
+      if (tituloColuna.coluna !== coluna) {
+        tituloColuna.direcao = '';
+      }
+    });
+
+    // sorting countries
+    if (direcao === '' || coluna === '') {
+      this.countries = COUNTRIES;
+    } else {
+      this.countries = [...COUNTRIES].sort((a, b) => {
+        const res = CabecalhoOrdenacaoDirective.comparar(a[coluna], b[coluna]);
+        return direcao === 'asc' ? res : -res;
+      });
+    }
+  }
   onSort({ column, direction }: SortEvent) {
 
     // resetting other headers
     this.headers.forEach(header => {
-      console.log(header);
+      //console.log(header);
       if (header.sortable !== column) {
         header.direction = '';
       }
