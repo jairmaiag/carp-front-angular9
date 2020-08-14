@@ -6,8 +6,8 @@ import { EventoOrdenacao } from './eventoOrdenacao';
 @Directive({
   selector: 'th[coluna]',
   host: {
-    '[class.asc]': 'direcao === "asc"',
-    '[class.desc]': 'direcao === "desc"',
+    '[class.ASC]': 'direcao === "ASC"',
+    '[class.DESC]': 'direcao === "DESC"',
     '(click)': 'rotacionar()'
   }
 })
@@ -15,7 +15,7 @@ export class CabecalhoOrdenacaoDirective {
   @Input() coluna: ColunaOrdenada = '';
   @Input() direcao: DirecaoOrdenacao = '';
   @Output() ordecacao = new EventEmitter<EventoOrdenacao>();
-  rotacao: { [key: string]: DirecaoOrdenacao } = { 'asc': 'desc', 'desc': '', '': 'asc' };
+  rotacao: { [key: string]: DirecaoOrdenacao } = { 'ASC': 'DESC', 'DESC': '', '': 'ASC' };
 
   constructor() { }
 
