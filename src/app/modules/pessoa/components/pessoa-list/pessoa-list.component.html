@@ -10,11 +10,12 @@
         >
           <caption>
             <div class="row">
-              <div class="col-sm">
-                Linha:
+              <div class="col-6">
+                <div class="form-inline">
+                Registros: 
                 <select
                   required
-                  class="form-control form-control-sm"
+                  class="form-control form-control-sm custom-select"
                   id="size"
                   name="size"
                   [(ngModel)]="paginacao.page.size"
@@ -25,8 +26,10 @@
                   <option value="50">50</option>
                   <option value="100">100</option>
                 </select>
-                Total de registros:
-                {{ paginacao.page.totalRows }}
+                <div class="col-6">
+                  Total de registros: <strong>{{ paginacao.page.totalRows }}</strong>
+                </div>
+              </div>
               </div>
               <div class="col-sm">
               </div>
