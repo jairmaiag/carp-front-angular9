@@ -27,7 +27,11 @@ export class PessoaListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.tituloColuna = this.pessoaService.getListaCabecalhoTabela();
+    this.paginacao.page.directionOrder = "ASC";
+    this.paginacao.page.fieldOrder = "nome";
     this.listar();
+    //let ordenar: EventoOrdenacao = { coluna: 'nome', direcao: 'asc' };
+    //this.onOrdem(ordenar);
   }
 
   ngOnDestroy(): void {
@@ -37,7 +41,6 @@ export class PessoaListComponent implements OnInit, OnDestroy {
   }
 
   onOrdem({ coluna, direcao }: EventoOrdenacao) {
-
     this.cabecalhos.forEach(tituloColuna => {
       if (tituloColuna.coluna !== coluna) {
         tituloColuna.direcao = '';
@@ -47,9 +50,11 @@ export class PessoaListComponent implements OnInit, OnDestroy {
     if (direcao === '' || coluna === '') {
       this.lista = this.listaTemp;
     } else {
+      this.paginacao.page.directionOrder = direcao.toUpperCase();
+      this.paginacao.page.fieldOrder = coluna;
       this.lista.sort((a, b) => {
         const res = CabecalhoOrdenacaoDirective.comparar(a[coluna], b[coluna]);
-        return direcao === 'asc' ? res : -res;
+        return direcao === 'ASC' ? res : -res;
       });
     }
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from './../../../../environments/environment';
@@ -27,7 +27,10 @@ export class PessoaService {
   getList(paginacao: Paginacao): Observable<Paginacao> {
     let params = new HttpParams();
     params = params.append('size', paginacao.page.size.toString());
-    return this.http.get<Paginacao>(`${this.API}/paginacao`,{params});
+    params = params.append('fieldOrder', paginacao.page.fieldOrder);
+    params = params.append('directionOrder', paginacao.page.directionOrder);
+
+    return this.http.get<Paginacao>(`${this.API}/paginacao`, { params });
   }
 
   getById(id: any): Observable<Pessoa> {
