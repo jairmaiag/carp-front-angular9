@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from './../../../../environments/environment';
@@ -24,8 +24,10 @@ export class PessoaService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getList(): Observable<Paginacao> {
-    return this.http.get<Paginacao>(`${this.API}/paginacao`);
+  getList(paginacao: Paginacao): Observable<Paginacao> {
+    let params = new HttpParams();
+    params = params.append('size', paginacao.page.size.toString());
+    return this.http.get<Paginacao>(`${this.API}/paginacao`,{params});
   }
 
   getById(id: any): Observable<Pessoa> {
