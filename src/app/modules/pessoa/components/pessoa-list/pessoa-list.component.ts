@@ -1,4 +1,4 @@
-import { Component, ViewChildren, QueryList, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChildren, QueryList, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { Paginacao } from './../../../../models/paginacao';
@@ -30,8 +30,6 @@ export class PessoaListComponent implements OnInit, OnDestroy {
     this.paginacao.page.directionOrder = "ASC";
     this.paginacao.page.fieldOrder = "nome";
     this.listar();
-    //let ordenar: EventoOrdenacao = { coluna: 'nome', direcao: 'asc' };
-    //this.onOrdem(ordenar);
   }
 
   ngOnDestroy(): void {
@@ -58,12 +56,13 @@ export class PessoaListComponent implements OnInit, OnDestroy {
       });
     }
   }
-
-  listar() {
+  mudouPagina() {
     console.log(this.paginacao);
+  }
+  listar() {
     const paginacao = this.pessoaService.getList(this.paginacao);
     this.inscricao$ = paginacao.subscribe(retorno => {
-      console.log(retorno);
+      
       this.paginacao = retorno;
       this.lista = retorno.rows;
       this.listaTemp = retorno.rows;
