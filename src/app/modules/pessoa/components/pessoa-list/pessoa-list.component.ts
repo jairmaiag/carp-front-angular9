@@ -14,7 +14,7 @@ import { EventoOrdenacao } from './../../../geral/directives/eventoOrdenacao';
 export class PessoaListComponent implements OnInit, OnDestroy {
 
   titulo: string = PessoaService.tituloListagem;
-  paginacao: Paginacao;
+  paginacao: Paginacao = new Paginacao();
   inscricao$: Subscription;
   lista: Pessoa[];
   listaTemp: Pessoa[];
@@ -55,8 +55,10 @@ export class PessoaListComponent implements OnInit, OnDestroy {
   }
 
   listar() {
-    const paginacao = this.pessoaService.getList();
+    console.log(this.paginacao);
+    const paginacao = this.pessoaService.getList(this.paginacao);
     this.inscricao$ = paginacao.subscribe(retorno => {
+      console.log(retorno);
       this.paginacao = retorno;
       this.lista = retorno.rows;
       this.listaTemp = retorno.rows;
