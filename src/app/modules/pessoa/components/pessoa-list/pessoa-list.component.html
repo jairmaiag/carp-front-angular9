@@ -10,28 +10,34 @@
         >
           <caption>
             <div class="row">
-              <div class="col-6">
-                <div class="form-inline">
-                Registros: 
-                <select
-                  required
-                  class="form-control form-control-sm custom-select"
-                  id="size"
-                  name="size"
-                  [(ngModel)]="paginacao.page.size"
-                  (change)="listar();"
-                >
-                  <option value="10" selected>10</option>
-                  <option value="20">20</option>
-                  <option value="50">50</option>
-                  <option value="100">100</option>
-                </select>
-                <div class="col-6">
-                  Total de registros: <strong>{{ paginacao.page.totalRows }}</strong>
-                </div>
-              </div>
-              </div>
               <div class="col-sm">
+                <ngb-pagination
+                  *ngIf="paginacao.page.size < paginacao.page.totalRows"
+                  [collectionSize]="paginacao.page.totalRows"
+                  [(page)]="paginaAtual"
+                  (pageChange)="mudouPagina()"
+                  aria-label="Default pagination"
+                ></ngb-pagination>
+              </div>
+              <div class="col-sm text-right">
+                <div class="form-inline">
+                  Exibindo:&nbsp;
+                  <select
+                    required
+                    class="form-control form-control-sm custom-select"
+                    id="size"
+                    name="size"
+                    [(ngModel)]="paginacao.page.size"
+                    (change)="listar()"
+                  >
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                  &nbsp; de &nbsp;
+                  <strong>{{ paginacao.page.totalRows }}</strong>
+                </div>
               </div>
             </div>
           </caption>
@@ -51,7 +57,9 @@
               >
                 Nome
               </th>
-              <th scope="col" coluna="ativo" (ordecacao)="onOrdem($event)">Ativo</th>
+              <th scope="col" coluna="ativo" (ordecacao)="onOrdem($event)">
+                Ativo
+              </th>
               <th scope="col" coluna="nascimento" (ordecacao)="onOrdem($event)">
                 Nascimento
               </th>
@@ -91,7 +99,6 @@
             </tr>
           </tfoot>
         </table>
-        <ngb-pagination [collectionSize]="paginacao.page.totalRows" [(page)]="paginacao.page.next" (pageChange)="mudouPagina()" aria-label="Default pagination"></ngb-pagination>
       </div>
       <ng-template #aviso>
         <div *ngIf="erro; else carregandoDados">
@@ -120,11 +127,7 @@
             </p>
             <p>Clique no botão abaixo para recarregar.</p>
             <p>
-              <button
-                type="button"
-                class="btn btn-primary"
-                (click)="recarregar()"
-              >
+              <button type="button" class="btn btn-primary" (click)="listar()">
                 <i class="fa fa-refresh" aria-hidden="true"></i>
               </button>
             </p>
