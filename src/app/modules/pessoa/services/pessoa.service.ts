@@ -29,6 +29,9 @@ export class PessoaService {
     params = params.append('size', paginacao.page.size.toString());
     params = params.append('fieldOrder', paginacao.page.fieldOrder);
     params = params.append('directionOrder', paginacao.page.directionOrder);
+    params = params.append('totalRows', paginacao.page.totalRows.toString());
+    params = params.append('next', paginacao.page.next.toString());
+    params = params.append('previousId', paginacao.page.previousId.toString());
 
     return this.http.get<Paginacao>(`${this.API}/paginacao`, { params });
   }
