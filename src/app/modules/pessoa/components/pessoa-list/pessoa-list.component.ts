@@ -20,6 +20,7 @@ export class PessoaListComponent implements OnInit, OnDestroy {
   listaTemp: Pessoa[];
   erro: any = null;
   tituloColuna: Array<string>;
+  paginaAtual: number = 1;
 
   @ViewChildren(CabecalhoOrdenacaoDirective) cabecalhos: QueryList<CabecalhoOrdenacaoDirective>;
 
@@ -37,7 +38,24 @@ export class PessoaListComponent implements OnInit, OnDestroy {
       this.inscricao$.unsubscribe();
     }
   }
-
+  mudouPagina() {
+    if (this.paginaAtual != this.paginacao.page.next) {
+      this.paginacao.page.next = this.paginaAtual;
+      console.log(this.paginacao.page);
+      //this.listar();
+    }
+  }
+  listar() {
+    const paginacao = this.pessoaService.getList(this.paginacao);
+    this.inscricao$ = paginacao.subscribe(retorno => {
+      this.paginacao = retorno;
+      console.log(this.paginacao.page);
+      this.lista = retorno.rows;
+      this.listaTemp = retorno.rows;
+    }, erro => {
+      this.erro = erro;
+    });
+  }
   onOrdem({ coluna, direcao }: EventoOrdenacao) {
     this.cabecalhos.forEach(tituloColuna => {
       if (tituloColuna.coluna !== coluna) {
@@ -56,20 +74,7 @@ export class PessoaListComponent implements OnInit, OnDestroy {
       });
     }
   }
-  mudouPagina() {
-    console.log(this.paginacao);
-  }
-  listar() {
-    const paginacao = this.pessoaService.getList(this.paginacao);
-    this.inscricao$ = paginacao.subscribe(retorno => {
-      
-      this.paginacao = retorno;
-      this.lista = retorno.rows;
-      this.listaTemp = retorno.rows;
-    }, erro => {
-      this.erro = erro;
-    });
-  }
+
   novo() {
     this.pessoaService.novo();
     this.listar();
