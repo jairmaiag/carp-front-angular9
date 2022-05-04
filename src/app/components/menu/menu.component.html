@@ -1,13 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" dropdown>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#intensBarraMenu" aria-controls="intensBarraMenu" aria-expanded="false" aria-label="Toggle navigation" id="botaoMenu">
-	    <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary" dropdown>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#intensBarraMenu"
+    aria-controls="intensBarraMenu" aria-expanded="false" aria-label="Toggle navigation" id="botaoMenu">
+    <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="intensBarraMenu">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active" [ngClass]="{ dropdown: item.subIntens != null }" *ngFor="let item of getItensMenu()">
+      <li class="nav-item" routerLinkActive="active" [ngClass]="{ dropdown: item.subIntens != null }"
+        *ngFor="let item of getItensMenu()">
         <a *ngIf="item.subIntens === null" class="nav-link" [routerLink]="[item.link]">{{ item.texto }}</a>
-        <a *ngIf="item.subIntens !== null" class="nav-link dropdown-toggle" id="subMenu" role="button" dropdownToggle aria-controls="dropdown-basic">{{ item.texto }}</a>
+        <a *ngIf="item.subIntens !== null" class="nav-link dropdown-toggle" id="subMenu" role="button" dropdownToggle
+          aria-controls="dropdown-basic">{{ item.texto }}</a>
         <div *ngIf="item.subIntens !== null">
           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="subMenu">
             <li role="menuitem" *ngFor="let subItem of item.subIntens">
@@ -24,3 +27,18 @@
     </form>
   </div>
 </nav>
+
+<div class="btn-group" dropdown>
+  <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+    aria-controls="dropdown-basic">
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+    </li>
+  </ul>
+</div>

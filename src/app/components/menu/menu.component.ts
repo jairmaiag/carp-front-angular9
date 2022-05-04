@@ -1,7 +1,5 @@
 import { ItemMenu } from './../../models/item-menu';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
 import { MenuService } from './../../services/menu.service';
 
 @Component({
